@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #222;
+    font-family: 'Inter', sans-serif;
+}
+
+.about-me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.about-me h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.about-me-intro {
+    font-size: 20px;
+    font-style: italic;
+    color: #ff6600;
+    margin: 20px 0;
+}
+
+.about-me-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    width: 100%;
+    gap: 40px;
+}
+
+.about-me-left, .about-me-right {
+    flex: 1;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.featured-project {
+    text-align: center;
+    padding: 50px;
+    background-color: #292929;
+    color: white;
+}
+
+.featured-project h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.featured-project p {
+    font-size: 16px;
+}
+
+.explore-btn {
+    margin-top: 15px;
+    padding: 12px 24px;
+    font-size: 16px;
+    color: white;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.explore-btn:hover {
+    background-color: #cc5200;
+}
