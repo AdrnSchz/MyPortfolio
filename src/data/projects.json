@@ -1,0 +1,51 @@
+[
+    {
+      "title": "Recommender System for Travel",
+      "media": { "type": "images", "urls": ["placeholder1.jpg", "placeholder2.jpg"] },
+      "description": "A personalized travel recommender system that provides destination suggestions based on user preferences and a knowledge base.",
+      "skills": ["Python", "Chatbot", "Recommender Systems", "AI"]
+    },
+    {
+      "title": "Spotify Replica",
+      "media": { "type": "video", "url": "placeholder.mp4" },
+      "description": "A Spotify-like music application featuring user authentication, song uploads, and playlist management with a Java Swing interface.",
+      "skills": ["Java", "Java Swing", "SQL", "Multithreading"]
+    },
+    {
+      "title": "Book Discussion Web Application",
+      "media": { "type": "images", "urls": ["placeholder1.jpg", "placeholder2.jpg"] },
+      "description": "A web platform for book enthusiasts with user authentication, book search, and discussion forums, powered by a custom REST API.",
+      "skills": ["PHP", "Slim", "Twig", "SQL", "JavaScript"]
+    },
+    {
+      "title": "HAL 9000 (Client-Server Music Streaming System)",
+      "media": { "type": "video", "url": "placeholder.mp4" },
+      "description": "A client-server system simulating a distributed music streaming service using IPC techniques like sockets, threads, and semaphores.",
+      "skills": ["C", "Sockets", "Threads", "Pipes", "Message Queues", "Semaphores"]
+    },
+    {
+      "title": "Limited-Slip Differential Controller for STM32F429I",
+      "media": { "type": "images", "urls": ["placeholder1.jpg", "placeholder2.jpg"] },
+      "description": "A system that measures wheel speeds and adjusts torque distribution in real-time using accelerometer data, with a graphical interface for visualization.",
+      "skills": ["Embedded Systems", "Java", "STM32", "Sensors", "Real-Time Processing"]
+    },
+    {
+      "title": "Typing Test Web App (Code Snippets)",
+      "media": { "type": "images", "urls": ["placeholder1.jpg", "placeholder2.jpg"] },
+      "description": "A web application that evaluates typing speed and accuracy for code snippets, providing insights on error patterns and programming language performance.",
+      "skills": ["React", "JavaScript", "Frontend Development"]
+    },
+    {
+      "title": "Web Portfolio",
+      "media": { "type": "images", "urls": ["placeholder1.jpg", "placeholder2.jpg"] },
+      "description": "A personal web portfolio built with React to showcase projects, skills, and career experience in an interactive and modern design.",
+      "skills": ["React", "JavaScript", "CSS", "Frontend Development"]
+    },
+    {
+      "title": "ATM Monitoring & Management System (Fujitsu)",
+      "media": { "type": "video", "url": "placeholder.mp4" },
+      "description": "A web platform for managing and monitoring ATM machines at Banco Sabadell, featuring real-time tracking, maintenance tools, and command execution services.",
+      "skills": ["Java", "Spring Boot", "Banking Systems", "Web Development"]
+    }
+]
+  
