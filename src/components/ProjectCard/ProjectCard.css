@@ -4,17 +4,10 @@
     padding: 20px;
     max-width: 400px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s, opacity 0.3s ease-in-out;
     position: relative;
     overflow: hidden;
     color: white;
     opacity: 0.8;
-}
-
-.project-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 15px 3px #ff6600;
-    opacity: 1;
 }
 
 .project-card h3 {

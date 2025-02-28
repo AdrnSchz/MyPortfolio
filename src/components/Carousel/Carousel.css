@@ -1,0 +1,55 @@
+.carousel {
+    aspect-ratio: 16/6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 33.33%;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    transform: scale(0.8);
+    visibility: hidden;
+}
+
+.carousel-item.center {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px #ff6600;
+    border-radius: 15px;
+    visibility: visible;
+}
+
+.carousel-item.adjacent {
+    opacity: 0.7;
+    transform: scale(0.9);
+    visibility: visible;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}

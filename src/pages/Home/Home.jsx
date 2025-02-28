@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { ProjectCard } from "../../components/ProjectCard/ProjectCard";
+import { Carousel } from "../../components/Carousel/Carousel";
 import projects from "../../data/projects.json";
 import "./Home.css";
 
@@ -11,37 +10,6 @@ export function Home() {
     const handleCardClick = (section) => {
         navigate(`/${section}`);
     };
-
-    
-    const totalProjects = projects.length;
-    const extendedProjects = [...projects, ...projects, ...projects];
-
-    const [currentIndex, setCurrentIndex] = useState(totalProjects);
-    
-    const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1));
-    };
-
-    const prevSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1));
-    };
-
-    useEffect(() => {
-        const interval = setInterval(nextSlide, 4000);
-        return () => clearInterval(interval);
-    }, []);
-
-    useEffect(() => {
-        if (currentIndex >= totalProjects * 2) {
-            setTimeout(() => {
-                setCurrentIndex(totalProjects);
-            }, 500);
-        } else if (currentIndex <= 0) {
-            setTimeout(() => {
-                setCurrentIndex(totalProjects);
-            }, 500);
-        }
-    }, [currentIndex, totalProjects]);
 
     return (
         <>
@@ -71,15 +39,7 @@ export function Home() {
             <section className="featured-project">
                 <h1>Featured Projects</h1>
                 <p className="featured-projects-description">Discover my latest and most impactful project.</p>
-                <div className="carousel-container">
-                    <button className="carousel-arrow left" onClick={prevSlide}>◀</button>
-                    <div className="carousel-track" style={{ transform: `translateX(-${(currentIndex / totalProjects) * 100}%)` }}>
-                        {extendedProjects.map((project, index) => (
-                            <ProjectCard key={index} {...project} />
-                        ))}
-                    </div>
-                    <button className="carousel-arrow right" onClick={nextSlide}>▶</button>
-                </div>
+                <Carousel projects={projects} />
                 <button onClick={() => handleCardClick("projects")} className="explore-btn">
                     Explore Projects
                 </button>
