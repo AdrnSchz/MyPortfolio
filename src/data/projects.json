@@ -91,17 +91,47 @@
   },
   {
     "title": "CIVENHANCE — e-Service-Learning Matchmaking Platform",
-    "tagline": "Full-stack matchmaking platform connecting universities and rural organisations.",
-    "description": "A full-stack, API-driven web platform designed to connect universities, teachers, students, and rural organisations for e-Service-Learning initiatives. The system features role-based access control with four distinct user types, an automated matching algorithm based on Jaccard similarity metrics, an AI-powered chatbot recommender powered by the Gemini API, and a robust internationalisation schema supporting multiple languages. The frontend is built with Astro and React; the backend exposes a RESTful API built on Node.js and Express, backed by a PostgreSQL database.",
+    "tagline": "Full-stack EU research platform connecting universities and rural organisations via AI matchmaking.",
+    "description": "A full-stack, API-driven web platform designed to connect universities, teachers, students, and rural organisations for e-Service-Learning initiatives. Features role-based access control for four user types, an automated matching algorithm using Jaccard similarity metrics, an AI-powered chatbot combining keyword scoring with Gemini LLM fallback (95% intent accuracy), and a robust i18n schema supporting 6 languages. The Astro + React frontend achieves WCAG accessibility compliance; the Node.js/Express REST API delivers 3–55ms response latency backed by PostgreSQL. Cypress E2E tests and Docker containerisation ensure CI/CD reliability.",
     "year": 2025,
-    "type": "Academic/Professional",
-    "role": "Full-stack Developer",
+    "type": "Professional",
+    "role": "Lead Full-Stack Developer",
     "teamSize": 1,
     "status": "Completed",
     "github": "https://github.com/AdrnSchz/civic-engagement-platform",
     "liveUrl": "https://matchmaking.civenhance.eu",
     "report": "/assets/projects/civenhance-memoria.pdf",
     "media": { "type": "video", "url": "/assets/projects/civenhance-demo.mp4" },
-    "skills": ["Node.js", "Express.js", "PostgreSQL", "REST API", "AI Chatbot", "Recommender Systems", "JavaScript", "Astro", "React"]
+    "skills": ["Astro", "React", "Node.js", "Express.js", "PostgreSQL", "REST API", "AI Chatbot", "Gemini API", "Recommender Systems", "JavaScript", "Cypress", "Docker", "i18n", "WCAG"]
+  },
+  {
+    "title": "MDCS — ATM Banking Middleware",
+    "tagline": "XFS-compliant Windows Service Providers powering ~11,000 CaixaBank ATMs across Spain.",
+    "description": "Maintenance and extension of the Device Control Software (MDCS) powering approximately 11,000 CaixaBank ATMs. The system implements the XFS (eXtensions for Financial Services) standard via Windows Service Providers, enabling hardware-agnostic ATM software across multiple device vendors. Key contributions include XFS v3.0–3.5 Service Providers for card readers, cash dispensers and PIN pads; JNI bridges between Java clients and C/C++ device drivers; XMODEM-based remote firmware update routines; Libtomcrypt integration for PIN-block cryptography; NSIS deployment installers; and Doxygen API documentation maintenance.",
+    "year": 2024,
+    "type": "Professional",
+    "role": "Application Developer",
+    "teamSize": null,
+    "status": "Active",
+    "github": null,
+    "liveUrl": null,
+    "report": null,
+    "media": { "type": "none" },
+    "skills": ["C", "C++", "XFS", "Device APIs", "JNI", "RPC/XDR", "XMODEM", "Libtomcrypt", "NSIS", "Doxygen", "SVN", "Visual Studio", "Windows Services"]
+  },
+  {
+    "title": "Financial Monitoring & KPI Suite",
+    "tagline": "Enterprise Java suite processing 50–100k financial records/day for Banco Sabadell's ATM network.",
+    "description": "A suite of Java enterprise applications that collect, process, and visualise financial transaction data and KPIs for Banco Sabadell's ATM network. The suite processes 50,000–100,000 financial records per day across four sub-systems: 'Recolectoras' (Java 8/Maven high-throughput collection engine), 'Servicios' and 'Portal' (backend ATM management and reporting modules), and 'ELAE/RecBsFj' (Spring Boot real-time event processing service). Oracle DB performance was optimised via B-tree/Bitmap indexes and Materialized Views. Interactive executive dashboards were built with AngularJS, D3.js, and Apache ECharts.",
+    "year": 2024,
+    "type": "Professional",
+    "role": "Application Developer",
+    "teamSize": null,
+    "status": "Active",
+    "github": null,
+    "liveUrl": null,
+    "report": null,
+    "media": { "type": "none" },
+    "skills": ["Java 8", "Java 21", "Spring Boot", "Oracle DB", "AngularJS", "D3.js", "Apache ECharts", "Maven", "Hibernate", "GitLab CI", "SQL", "Hibernate ORM"]
   }
 ]

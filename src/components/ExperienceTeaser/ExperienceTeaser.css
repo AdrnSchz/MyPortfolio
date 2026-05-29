@@ -1,0 +1,163 @@
+.exp-teaser {
+    background-color: #292929;
+    padding: 70px 40px;
+    text-align: center;
+}
+
+.exp-teaser__heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 0 0 10px;
+}
+
+.exp-teaser__sub {
+    font-size: 1rem;
+    color: #c0c0c0;
+    margin: 0 0 40px;
+}
+
+/* Grid */
+.exp-teaser__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto 36px;
+}
+
+/* Cards */
+.exp-teaser__card {
+    background: #1f1f1f;
+    border: 1px solid #464646;
+    border-radius: 12px;
+    padding: 22px 20px;
+    text-align: left;
+    position: relative;
+    transition: border-color 0.25s, transform 0.2s;
+}
+
+.exp-teaser__card:hover {
+    border-color: #ff660055;
+    transform: translateY(-3px);
+}
+
+.exp-teaser__card--current {
+    border-color: #ff660044;
+}
+
+/* Active dot (top-right for current job) */
+.exp-teaser__active-dot {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff6600;
+    box-shadow: 0 0 8px #ff660099;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 4px #ff660088; }
+    50%       { box-shadow: 0 0 12px #ff6600cc; }
+}
+
+.exp-teaser__card-top {
+    margin-bottom: 16px;
+}
+
+.exp-teaser__role {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 0 0 4px;
+    padding-right: 20px; /* avoid overlap with dot */
+}
+
+.exp-teaser__company {
+    display: block;
+    font-size: 0.85rem;
+    color: #ff6600;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.exp-teaser__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.exp-teaser__type {
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid;
+    font-weight: 600;
+}
+
+.exp-teaser__dates {
+    font-size: 0.78rem;
+    color: #9b9b9b;
+}
+
+/* Skill tags */
+.exp-teaser__skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.exp-teaser__skill-tag {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #2d2d2d;
+    color: #d0d0d0;
+    border: 1px solid #4a4a4a;
+}
+
+.exp-teaser__skill-tag--more {
+    color: #a0a0a0;
+    background: #252525;
+    border-style: dashed;
+}
+
+/* CTA button */
+.exp-teaser__cta {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    background: #ff6600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.15s;
+}
+
+.exp-teaser__cta:hover {
+    background: #cc5200;
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .exp-teaser {
+        padding: 50px 20px;
+    }
+
+    .exp-teaser__grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 960px) {
+    .exp-teaser__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

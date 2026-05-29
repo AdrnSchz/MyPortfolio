@@ -39,7 +39,7 @@
 .featured-project {
     text-align: center;
     padding: 50px;
-    background-color: #292929;
+    background-color: #1e1e1e;
     color: white;
 }
 
@@ -50,6 +50,7 @@
 
 .featured-projects-description {
     font-size: 22px;
+    color: #d0d0d0;
 }
 
 .explore-btn {
