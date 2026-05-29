@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import experience from "../../data/experience.json";
 import { SkillLabel } from "../../components/SkillLabel/SkillLabel";
 import "./Experience.css";
@@ -68,6 +69,16 @@ function SubProject({ project }) {
         </div>
     );
 }
+
+SubProject.propTypes = {
+    project: PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        bullets: PropTypes.arrayOf(PropTypes.string).isRequired,
+        skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }).isRequired,
+};
 
 function ExperienceCard({ job, isLast }) {
     const typeStyle = TYPE_COLORS[job.type] ?? TYPE_COLORS["Contract"];
@@ -166,6 +177,34 @@ function ExperienceCard({ job, isLast }) {
     );
 }
 
+ExperienceCard.propTypes = {
+    job: PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+        role: PropTypes.string.isRequired,
+        company: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        startDate: PropTypes.string.isRequired,
+        endDate: PropTypes.string,
+        current: PropTypes.bool,
+        location: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        bullets: PropTypes.arrayOf(PropTypes.string),
+        projects: PropTypes.arrayOf(
+            PropTypes.shape({
+                id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+                name: PropTypes.string.isRequired,
+                description: PropTypes.string.isRequired,
+                bullets: PropTypes.arrayOf(PropTypes.string).isRequired,
+                skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+            })
+        ),
+        skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+        projectRef: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        liveUrl: PropTypes.string,
+    }).isRequired,
+    isLast: PropTypes.bool.isRequired,
+};
+
 export function Experience() {
     return (
         <div className="experience-page">
@@ -201,7 +240,7 @@ export function Experience() {
                                     className="exp-card__type-pill"
                                     style={{ background: "#4a9eff22", color: "#4a9eff", borderColor: "#4a9eff55" }}
                                 >
-                                    Bachelor's Degree
+                                    Bachelor&apos;s Degree
                                 </span>
                                 <span className="exp-card__dates">Sep 2021 – Jul 2025</span>
                             </div>

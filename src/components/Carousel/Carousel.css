@@ -52,6 +52,7 @@
     align-items: center;
     justify-content: center;
     transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    -webkit-user-select: none;
     user-select: none;
 }
 
