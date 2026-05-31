@@ -177,6 +177,121 @@
     font-size: 14px;
 }
 
+/* ── Skill multi-select dropdown ── */
+.pp-skill-dropdown {
+    position: relative;
+}
+
+.pp-skill-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: inherit;
+    font-size: 13px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+}
+
+.pp-skill-trigger:hover,
+.pp-skill-trigger--open {
+    outline: none;
+    border-color: rgba(255, 102, 0, 0.45);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.pp-skill-trigger--active {
+    border-color: rgba(255, 102, 0, 0.6);
+    color: #ff6600;
+    background: rgba(255, 102, 0, 0.08);
+}
+
+.pp-skill-trigger__arrow {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.4);
+    transition: transform 0.2s ease;
+}
+
+.pp-skill-trigger--open .pp-skill-trigger__arrow {
+    transform: rotate(180deg);
+}
+
+.pp-skill-panel {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    z-index: 100;
+    background: #2a2a2a;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 6px;
+    min-width: 200px;
+    max-height: 280px;
+    overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pp-skill-panel::-webkit-scrollbar {
+    width: 4px;
+}
+.pp-skill-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+.pp-skill-panel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+}
+
+.pp-skill-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: inherit;
+    font-size: 13px;
+    padding: 7px 10px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.pp-skill-option:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+}
+
+.pp-skill-option--selected {
+    color: #ff6600;
+    background: rgba(255, 102, 0, 0.1);
+}
+
+.pp-skill-option--selected:hover {
+    background: rgba(255, 102, 0, 0.18);
+}
+
+.pp-skill-option__check {
+    width: 14px;
+    font-size: 12px;
+    flex-shrink: 0;
+    color: #ff6600;
+    font-weight: 700;
+}
+
 /* ── Active filter chips ── */
 .pp-chips {
     display: flex;

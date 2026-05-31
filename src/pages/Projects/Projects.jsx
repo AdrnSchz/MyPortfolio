@@ -32,11 +32,13 @@ export function Projects() {
 
     // ── State ──────────────────────────────────────────────────────────────
     const [rawSearch, setRawSearch] = useState("");
-    const [search, setSearch] = useState("");       // debounced
+    const [search, setSearch] = useState("");           // debounced
     const [filterType, setFilterType] = useState("");
-    const [filterSkill, setFilterSkill] = useState("");
-    const [sortKey, setSortKey] = useState("newest"); // newest | oldest | az | za
+    const [filterSkills, setFilterSkills] = useState(new Set());
+    const [skillDropdownOpen, setSkillDropdownOpen] = useState(false);
+    const [sortKey, setSortKey] = useState("newest");   // newest | oldest | az | za
     const searchRef = useRef(null);
+    const skillDropdownRef = useRef(null);
 
     // Debounce the search input (300 ms)
     useEffect(() => {
@@ -44,15 +46,29 @@ export function Projects() {
         return () => clearTimeout(t);
     }, [rawSearch]);
 
+    // Close skill dropdown on outside click
+    useEffect(() => {
+        if (!skillDropdownOpen) return;
+        const handler = (e) => {
+            if (skillDropdownRef.current && !skillDropdownRef.current.contains(e.target)) {
+                setSkillDropdownOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handler);
+        return () => document.removeEventListener("mousedown", handler);
+    }, [skillDropdownOpen]);
+
     // ── Filtered + sorted list ─────────────────────────────────────────────
     const words = useMemo(() => search.split(/\s+/).filter(Boolean), [search]);
 
     const filtered = useMemo(() => {
         let result = projects.map((p, i) => ({ ...p, _idx: i }));
 
-        if (words.length) result = result.filter((p) => matchesSearch(p, words));
-        if (filterType)   result = result.filter((p) => p.type === filterType);
-        if (filterSkill)  result = result.filter((p) => p.skills.includes(filterSkill));
+        if (words.length)        result = result.filter((p) => matchesSearch(p, words));
+        if (filterType)          result = result.filter((p) => p.type === filterType);
+        if (filterSkills.size)   result = result.filter((p) =>
+            [...filterSkills].every((s) => p.skills.includes(s))
+        );
 
         switch (sortKey) {
             case "newest": result.sort((a, b) => (b.year ?? 0) - (a.year ?? 0)); break;
@@ -61,23 +77,40 @@ export function Projects() {
             case "za":     result.sort((a, b) => b.title.localeCompare(a.title)); break;
         }
         return result;
-    }, [words, filterType, filterSkill, sortKey]);
+    }, [words, filterType, filterSkills, sortKey]);
 
     // ── Helpers ────────────────────────────────────────────────────────────
-    const hasFilters = rawSearch || filterType || filterSkill;
+    const hasFilters = rawSearch || filterType || filterSkills.size > 0;
+
+    const toggleSkill = (skill) => {
+        setFilterSkills((prev) => {
+            const next = new Set(prev);
+            if (next.has(skill)) next.delete(skill);
+            else next.add(skill);
+            return next;
+        });
+    };
+
+    const removeSkill = (skill) => {
+        setFilterSkills((prev) => {
+            const next = new Set(prev);
+            next.delete(skill);
+            return next;
+        });
+    };
 
     const clearAll = () => {
         setRawSearch("");
         setFilterType("");
-        setFilterSkill("");
+        setFilterSkills(new Set());
+        setSkillDropdownOpen(false);
         searchRef.current?.focus();
     };
 
-    const removeChip = (kind) => {
-        if (kind === "search") setRawSearch("");
-        if (kind === "type")   setFilterType("");
-        if (kind === "skill")  setFilterSkill("");
-    };
+    const skillTriggerLabel =
+        filterSkills.size === 0 ? "Skills" :
+        filterSkills.size === 1 ? [...filterSkills][0] :
+        `${filterSkills.size} skills`;
 
     // ── Render ─────────────────────────────────────────────────────────────
     return (
@@ -133,16 +166,41 @@ export function Projects() {
                         </select>
                     </div>
 
-                    <div className="pp-select-wrap">
-                        <select
-                            className="pp-select"
-                            value={filterSkill}
-                            onChange={(e) => setFilterSkill(e.target.value)}
-                            aria-label="Filter by skill"
+                    {/* Multi-select skill dropdown */}
+                    <div className="pp-skill-dropdown" ref={skillDropdownRef}>
+                        <button
+                            className={`pp-skill-trigger${filterSkills.size ? " pp-skill-trigger--active" : ""}${skillDropdownOpen ? " pp-skill-trigger--open" : ""}`}
+                            onClick={() => setSkillDropdownOpen((v) => !v)}
+                            aria-expanded={skillDropdownOpen}
+                            aria-label="Filter by skills"
                         >
-                            <option value="">All Skills</option>
-                            {ALL_SKILLS.map((s) => <option key={s} value={s}>{s}</option>)}
-                        </select>
+                            {skillTriggerLabel}
+                            <svg className="pp-skill-trigger__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </button>
+
+                        {skillDropdownOpen && (
+                            <div className="pp-skill-panel" role="listbox" aria-multiselectable="true">
+                                {ALL_SKILLS.map((skill) => {
+                                    const selected = filterSkills.has(skill);
+                                    return (
+                                        <button
+                                            key={skill}
+                                            role="option"
+                                            aria-selected={selected}
+                                            className={`pp-skill-option${selected ? " pp-skill-option--selected" : ""}`}
+                                            onClick={() => toggleSkill(skill)}
+                                        >
+                                            <span className="pp-skill-option__check" aria-hidden="true">
+                                                {selected ? "✓" : ""}
+                                            </span>
+                                            {skill}
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        )}
                     </div>
 
                     <div className="pp-select-wrap pp-select-wrap--sort">
@@ -176,20 +234,20 @@ export function Projects() {
             {hasFilters && (
                 <div className="pp-chips">
                     {rawSearch && (
-                        <button className="pp-chip" onClick={() => removeChip("search")}>
+                        <button className="pp-chip" onClick={() => setRawSearch("")}>
                             🔍 &ldquo;{rawSearch}&rdquo; <span>✕</span>
                         </button>
                     )}
                     {filterType && (
-                        <button className="pp-chip" onClick={() => removeChip("type")}>
+                        <button className="pp-chip" onClick={() => setFilterType("")}>
                             Type: {filterType} <span>✕</span>
                         </button>
                     )}
-                    {filterSkill && (
-                        <button className="pp-chip" onClick={() => removeChip("skill")}>
-                            Skill: {filterSkill} <span>✕</span>
+                    {[...filterSkills].map((skill) => (
+                        <button key={skill} className="pp-chip" onClick={() => removeSkill(skill)}>
+                            {skill} <span>✕</span>
                         </button>
-                    )}
+                    ))}
                 </div>
             )}
 
