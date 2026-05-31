@@ -202,7 +202,9 @@
 .project-detail__image {
     width: 100%;
     display: block;
-    object-fit: cover;
+    max-height: 380px;
+    object-fit: contain;
+    background: #0a0a0a;
 }
 
 .pd-arrow {

@@ -68,7 +68,7 @@
       "Implemented Cypress end-to-end test suite and Docker containerisation for reproducible CI/CD deployments",
       "Deployed the production platform live at matchmaking.civenhance.eu"
     ],
-    "projectRef": 6,
+    "projectRef": 0,
     "liveUrl": "https://matchmaking.civenhance.eu",
     "skills": ["Astro", "React", "Node.js", "Express.js", "PostgreSQL", "REST API", "AI Chatbot", "Gemini API", "Cypress", "Docker", "i18n", "WCAG", "JavaScript"]
   },

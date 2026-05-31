@@ -1,5 +1,20 @@
 [
   {
+    "title": "CIVENHANCE — e-Service-Learning Matchmaking Platform",
+    "tagline": "Full-stack EU research platform connecting universities and rural organisations via AI matchmaking.",
+    "description": "A full-stack, API-driven web platform designed to connect universities, teachers, students, and rural organisations for e-Service-Learning initiatives. Features role-based access control for four user types, an automated matching algorithm using Jaccard similarity metrics, an AI-powered chatbot combining keyword scoring with Gemini LLM fallback (95% intent accuracy), and a robust i18n schema supporting 6 languages. The Astro + React frontend achieves WCAG accessibility compliance; the Node.js/Express REST API delivers 3–55ms response latency backed by PostgreSQL. Cypress E2E tests and Docker containerisation ensure CI/CD reliability.",
+    "year": 2025,
+    "type": "Professional",
+    "role": "Lead Full-Stack Developer",
+    "teamSize": 1,
+    "status": "Completed",
+    "github": "https://github.com/AdrnSchz/civic-engagement-platform",
+    "liveUrl": "https://matchmaking.civenhance.eu",
+    "report": "/assets/projects/civenhance-memoria.pdf",
+    "media": { "type": "video", "url": "/assets/projects/Civenhance-Demo.mp4" },
+    "skills": ["Astro", "React", "Node.js", "Express.js", "PostgreSQL", "REST API", "AI Chatbot", "Gemini API", "Recommender Systems", "JavaScript", "Cypress", "Docker", "i18n", "WCAG"]
+  },
+  {
     "title": "Recommender System for Travel",
     "tagline": "AI-powered travel destination recommender with a conversational chatbot interface.",
     "description": "A personalized travel recommender system that provides destination suggestions based on user preferences and a knowledge base. Users interact with a chatbot that collects their interests and constraints, then returns ranked recommendations using content-based filtering.",
@@ -26,7 +41,7 @@
     "github": "https://github.com/AdrnSchz/Spotify",
     "liveUrl": null,
     "report": "/assets/projects/spotify-report.pdf",
-    "media": { "type": "none" },
+    "media": { "type": "video", "url": "/assets/projects/spotify-demo.mp4" },
     "skills": ["Java", "Java Swing", "SQL", "Multithreading"]
   },
   {
@@ -41,7 +56,7 @@
     "github": "https://github.com/AdrnSchz/Bookworm",
     "liveUrl": null,
     "report": "/assets/projects/book-discussion-requirements.md",
-    "media": { "type": "images", "urls": [] },
+    "media": { "type": "video", "url": "/assets/projects/bookworm-demo.mp4" },
     "skills": ["PHP", "Slim", "Twig", "SQL", "JavaScript"]
   },
   {
@@ -56,7 +71,7 @@
     "github": "https://github.com/AdrnSchz/HAL-9000System",
     "liveUrl": null,
     "report": "/assets/projects/hal9000-report.pdf",
-    "media": { "type": "none" },
+    "media": { "type": "images", "urls": ["/assets/projects/hal9000-1.webp"] },
     "skills": ["C", "Sockets", "Threads", "Pipes", "Message Queues", "Semaphores"]
   },
   {
@@ -88,21 +103,6 @@
     "report": "/assets/projects/compiler-report.pdf",
     "media": { "type": "none" },
     "skills": ["Java", "Compiler Design", "Lexical Analysis", "Syntax Analysis", "Semantic Analysis", "MIPS Assembly", "Intermediate Code Generation"]
-  },
-  {
-    "title": "CIVENHANCE — e-Service-Learning Matchmaking Platform",
-    "tagline": "Full-stack EU research platform connecting universities and rural organisations via AI matchmaking.",
-    "description": "A full-stack, API-driven web platform designed to connect universities, teachers, students, and rural organisations for e-Service-Learning initiatives. Features role-based access control for four user types, an automated matching algorithm using Jaccard similarity metrics, an AI-powered chatbot combining keyword scoring with Gemini LLM fallback (95% intent accuracy), and a robust i18n schema supporting 6 languages. The Astro + React frontend achieves WCAG accessibility compliance; the Node.js/Express REST API delivers 3–55ms response latency backed by PostgreSQL. Cypress E2E tests and Docker containerisation ensure CI/CD reliability.",
-    "year": 2025,
-    "type": "Professional",
-    "role": "Lead Full-Stack Developer",
-    "teamSize": 1,
-    "status": "Completed",
-    "github": "https://github.com/AdrnSchz/civic-engagement-platform",
-    "liveUrl": "https://matchmaking.civenhance.eu",
-    "report": "/assets/projects/civenhance-memoria.pdf",
-    "media": { "type": "video", "url": "/assets/projects/civenhance-demo.mp4" },
-    "skills": ["Astro", "React", "Node.js", "Express.js", "PostgreSQL", "REST API", "AI Chatbot", "Gemini API", "Recommender Systems", "JavaScript", "Cypress", "Docker", "i18n", "WCAG"]
   },
   {
     "title": "MDCS — ATM Banking Middleware",
