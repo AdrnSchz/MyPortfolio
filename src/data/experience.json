@@ -29,7 +29,7 @@
           "Created NSIS-based installer scripts for automated ATM software deployment packages across the fleet",
           "Maintained Doxygen-generated API documentation for Device APIs and Service Provider interfaces"
         ],
-        "skills": ["C", "C++", "XFS", "Device APIs", "JNI", "RPC/XDR", "XMODEM", "Libtomcrypt", "NSIS", "Doxygen", "SVN", "Visual Studio", "Windows Services"]
+        "skills": ["C", "C++", "XFS", "JNI", "RPC/XDR", "XMODEM", "Libtomcrypt", "NSIS", "Doxygen", "SVN", "Windows Services"]
       },
       {
         "id": "sabadell",
@@ -43,7 +43,7 @@
           "Built interactive KPI dashboards using AngularJS with D3.js and Apache ECharts data visualisations",
           "Managed Maven multi-module build system and maintained GitLab CI/CD pipelines for automated testing and deployment"
         ],
-        "skills": ["Java 8", "Java 21", "Spring Boot", "Oracle DB", "AngularJS", "D3.js", "Apache ECharts", "Maven", "Hibernate", "GitLab CI", "SQL"]
+        "skills": ["Java", "Spring Boot", "Oracle DB", "AngularJS", "D3.js", "Apache ECharts", "Maven", "Hibernate", "GitLab CI", "SQL"]
       }
     ],
     "skills": ["C", "C++", "Java", "Spring Boot", "Oracle DB", "AngularJS", "D3.js", "Maven", "Hibernate", "GitLab CI", "XFS", "JNI", "Windows Services"]
@@ -70,7 +70,7 @@
     ],
     "projectRef": 0,
     "liveUrl": "https://matchmaking.civenhance.eu",
-    "skills": ["Astro", "React", "Node.js", "Express.js", "PostgreSQL", "REST API", "AI Chatbot", "Gemini API", "Cypress", "Docker", "i18n", "WCAG", "JavaScript"]
+    "skills": ["Astro", "React", "Node.js", "Express.js", "PostgreSQL", "REST API", "Chatbot", "Gemini API", "Cypress", "Docker", "i18n", "WCAG", "JavaScript"]
   },
   {
     "id": "lasalle-ta",

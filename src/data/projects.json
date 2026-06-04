@@ -12,7 +12,7 @@
     "liveUrl": "https://matchmaking.civenhance.eu",
     "report": "/assets/projects/civenhance-memoria.pdf",
     "media": { "type": "video", "url": "/assets/projects/Civenhance-Demo.mp4" },
-    "skills": ["Astro", "React", "Node.js", "Express.js", "PostgreSQL", "REST API", "AI Chatbot", "Gemini API", "Recommender Systems", "JavaScript", "Cypress", "Docker", "i18n", "WCAG"]
+    "skills": ["Astro", "React", "Node.js", "Express.js", "PostgreSQL", "REST API", "Chatbot", "Gemini API", "Recommender Systems", "JavaScript", "Cypress", "Docker", "i18n", "WCAG"]
   },
   {
     "title": "Recommender System for Travel",
@@ -87,7 +87,7 @@
     "liveUrl": null,
     "report": "/assets/projects/slip-differential-report.pdf",
     "media": { "type": "images", "urls": [] },
-    "skills": ["Embedded C", "Java", "STM32", "Sensors", "Real-Time Processing", "Serial Communication"]
+    "skills": ["C", "Java", "STM32", "Sensors", "Real-Time Processing", "Serial Communication"]
   },
   {
     "title": "Z Language Compiler",
@@ -102,7 +102,7 @@
     "liveUrl": null,
     "report": "/assets/projects/compiler-report.pdf",
     "media": { "type": "none" },
-    "skills": ["Java", "Compiler Design", "Lexical Analysis", "Syntax Analysis", "Semantic Analysis", "MIPS Assembly", "Intermediate Code Generation"]
+    "skills": ["Java", "Compiler Design", "MIPS Assembly"]
   },
   {
     "title": "MDCS — ATM Banking Middleware",
@@ -117,7 +117,7 @@
     "liveUrl": null,
     "report": null,
     "media": { "type": "none" },
-    "skills": ["C", "C++", "XFS", "Device APIs", "JNI", "RPC/XDR", "XMODEM", "Libtomcrypt", "NSIS", "Doxygen", "SVN", "Visual Studio", "Windows Services"]
+    "skills": ["C", "C++", "XFS", "JNI", "RPC/XDR", "XMODEM", "Libtomcrypt", "NSIS", "Doxygen", "SVN", "Windows Services"]
   },
   {
     "title": "Financial Monitoring & KPI Suite",
@@ -132,6 +132,6 @@
     "liveUrl": null,
     "report": null,
     "media": { "type": "none" },
-    "skills": ["Java 8", "Java 21", "Spring Boot", "Oracle DB", "AngularJS", "D3.js", "Apache ECharts", "Maven", "Hibernate", "GitLab CI", "SQL", "Hibernate ORM"]
+    "skills": ["Java", "Spring Boot", "Oracle DB", "AngularJS", "D3.js", "Apache ECharts", "Maven", "Hibernate", "GitLab CI", "SQL"]
   }
 ]

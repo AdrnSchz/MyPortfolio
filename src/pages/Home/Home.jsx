@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import { FaDownload, FaEnvelope, FaArrowRight } from "react-icons/fa";
 import { Carousel } from "../../components/Carousel/Carousel";
 import { ExperienceTeaser } from "../../components/ExperienceTeaser/ExperienceTeaser";
+import { Contact } from "../../components/Contact/Contact";
 import projects from "../../data/projects.json";
 import "./Home.css";
 
@@ -10,6 +12,10 @@ export function Home() {
 
     const handleCardClick = (section) => {
         navigate(`/${section}`);
+    };
+
+    const scrollToContact = () => {
+        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
     };
 
     return (
@@ -40,6 +46,30 @@ export function Home() {
                         </p>
                     </div>
                 </div>
+
+                <div className="about-me-ctas">
+                    <button
+                        type="button"
+                        className="hero-cta hero-cta--primary"
+                        onClick={() => handleCardClick("projects")}
+                    >
+                        View Projects <FaArrowRight aria-hidden="true" />
+                    </button>
+                    <a
+                        href="/assets/cv/CV.pdf"
+                        download
+                        className="hero-cta hero-cta--secondary"
+                    >
+                        <FaDownload aria-hidden="true" /> Download CV
+                    </a>
+                    <button
+                        type="button"
+                        className="hero-cta hero-cta--ghost"
+                        onClick={scrollToContact}
+                    >
+                        <FaEnvelope aria-hidden="true" /> Get in Touch
+                    </button>
+                </div>
             </section>
 
             <ExperienceTeaser />
@@ -52,6 +82,8 @@ export function Home() {
                     Explore All Projects
                 </button>
             </section>
+
+            <Contact />
         </>
     );
 

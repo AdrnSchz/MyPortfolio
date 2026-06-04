@@ -1,0 +1,102 @@
+.contact {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 80px 20px;
+}
+
+.contact__inner {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact__heading {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    margin: 0 0 8px;
+    text-align: center;
+    color: #fff;
+}
+
+.contact__sub {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 16px;
+    margin: 0 0 40px;
+}
+
+/* ── Direct links ── */
+.contact__links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact__link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    width: 100%;
+}
+
+.contact__link:hover {
+    background: rgba(255, 102, 0, 0.08);
+    border-color: rgba(255, 102, 0, 0.4);
+    transform: translateX(2px);
+}
+
+.contact__link-icon {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(255, 102, 0, 0.12);
+    color: #ff6600;
+    font-size: 18px;
+}
+
+.contact__link-meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.contact__link-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.contact__link-value {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.contact__link-action {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.contact__link:hover .contact__link-action {
+    color: #ff6600;
+}
