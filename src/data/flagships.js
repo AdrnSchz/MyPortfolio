@@ -11,8 +11,8 @@ export const FLAGSHIPS = [
         client: "CaixaBank",
         employer: "Fujitsu",
         period: { start: "2024-11", end: null },
-        bulletIdx: [0, 1, 2, 3],
-        figure: { value: "≈11,000", unit: "ATMs", context: "CaixaBank fleet · Spain" },
+        bulletIdx: [0, 1, 2, 4],
+        caption: "CaixaBank fleet · Spain",
         parts: ["C", "C++", "XFS", "JNI", "Windows Services", "Libtomcrypt", "XMODEM", "RPC/XDR", "NSIS", "Doxygen", "SVN"],
         schematic: {
             width: 440,
@@ -48,7 +48,7 @@ export const FLAGSHIPS = [
         employer: "Fujitsu",
         period: { start: "2024-11", end: null },
         bulletIdx: [0, 1, 2, 3],
-        figure: { value: "50–100k", unit: "records / day", context: "Banco Sabadell ATM network" },
+        caption: "Banco Sabadell ATM network",
         parts: ["Java", "Spring Boot", "Oracle DB", "SQL", "Hibernate", "Maven", "GitLab CI", "AngularJS", "D3.js", "Apache ECharts"],
         schematic: {
             width: 440,
@@ -79,11 +79,9 @@ export const FLAGSHIPS = [
         client: "EU research project · La Salle Ramon Llull",
         employer: null,
         period: { start: "2024-11", end: "2025-07" },
-        // Excludes the chatbot / LLM bullet and the "AI matchmaking" tagline on purpose:
-        // this view leads with the platform itself.
-        hideTagline: true,
-        bulletIdx: [0, 2, 5, 6],
-        figure: { value: "3–55", unit: "ms", context: "API response latency" },
+        // The FAQ assistant bullet (last) is left out on purpose: this view leads with the platform itself.
+        bulletIdx: [0, 1, 2, 4],
+        caption: "EU research project · live in production",
         parts: ["Node.js", "Express.js", "REST API", "PostgreSQL", "Docker", "Cypress", "JavaScript", "Astro", "React", "i18n", "WCAG"],
         schematic: {
             width: 440,
@@ -94,7 +92,7 @@ export const FLAGSHIPS = [
                 { id: "u3", x: 226, y: 16, w: 81, h: 40, label: "Students", device: true },
                 { id: "u4", x: 319, y: 16, w: 81, h: 40, label: "Rural orgs", device: true },
                 { id: "web", x: 40, y: 100, w: 360, h: 52, label: "Astro + React frontend", sub: "WCAG · i18n, 6 languages", item: 8, quiet: true },
-                { id: "api", x: 56, y: 222, w: 328, h: 60, label: "Node.js / Express REST API", sub: "role-based access · 4 user types", item: 2 },
+                { id: "api", x: 56, y: 222, w: 328, h: 60, label: "Node.js / Express REST API", sub: "role-based access · matching engine", item: 2 },
                 { id: "db", x: 56, y: 330, w: 328, h: 48, label: "PostgreSQL", item: 4 },
             ],
             edges: [

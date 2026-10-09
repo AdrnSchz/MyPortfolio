@@ -2,51 +2,50 @@
   {
     "id": "fujitsu",
     "company": "Fujitsu",
-    "role": "Application Developer",
+    "role": "Software Engineer",
     "type": "Full-time",
     "location": "Barcelona, Spain (Hybrid)",
     "startDate": "2024-11",
     "endDate": null,
     "current": true,
     "logo": null,
-    "description": "Working as an Application Developer at Fujitsu Technology Solutions, embedded in client-facing development teams in the banking sector. Responsible for maintaining, extending, and improving critical financial software infrastructure used by two major Spanish banks across two parallel project lines.",
+    "description": "Embedded in Fujitsu Technology Solutions' client development teams for the banking sector, maintaining, extending and improving critical financial software for two major Spanish banks across two parallel product lines: ATM middleware for CaixaBank and financial monitoring for Banco Sabadell.",
     "bullets": [
-      "Developing and maintaining banking-grade software for high-availability financial systems serving millions of customers",
-      "Working in parallel across ATM middleware (CaixaBank) and financial monitoring (Banco Sabadell) product lines",
-      "Collaborating in hybrid Agile teams with multi-year product backlogs and large enterprise codebases",
-      "Applying rigorous testing and code review processes aligned with banking-sector compliance standards"
+      "Develop and maintain banking-grade software for high-availability financial systems serving millions of customers",
+      "Work in hybrid Agile teams on large enterprise codebases with multi-year product backlogs",
+      "Apply rigorous testing and code review processes aligned with banking-sector compliance standards"
     ],
     "projects": [
       {
         "id": "mdcs",
         "name": "MDCS — ATM Banking Middleware (CaixaBank)",
-        "description": "Maintaining and extending the Device Control Software (MDCS) that powers approximately 11,000 CaixaBank ATMs across Spain. The system provides a Windows Service layer implementing the XFS (eXtensions for Financial Services) standard, enabling hardware-agnostic ATM software via standardised Device APIs.",
+        "description": "Maintenance and extension of the Device Control Software (MDCS) that runs on approximately 11,000 CaixaBank ATMs across Spain. MDCS is a Windows Service layer implementing the XFS (eXtensions for Financial Services) standard, which lets ATM software drive hardware from different vendors through standardised Device APIs.",
         "bullets": [
-          "Implemented XFS v3.0–3.5 compliant Service Providers for ATM hardware devices (card readers, cash dispensers, PIN pads)",
-          "Built JNI (Java Native Interface) bridges between Java client applications and C/C++ low-level device drivers",
-          "Developed XMODEM-based firmware update routines for remote ATM peripheral device updates",
-          "Integrated Libtomcrypt for cryptographic operations including PIN block handling and HSM key management",
-          "Created NSIS-based installer scripts for automated ATM software deployment packages across the fleet",
-          "Maintained Doxygen-generated API documentation for Device APIs and Service Provider interfaces"
+          "Design and maintain Device APIs and XFS v3.0–3.5 Service Providers for card readers, cash dispensers and PIN pads, supporting 24/7 availability across the fleet",
+          "Build JNI (Java Native Interface) bridges between Java client applications and C/C++ device drivers",
+          "Keep CPU and memory footprint minimal through efficiency-by-design in C++ service code",
+          "Develop XMODEM-based routines for remote firmware updates of ATM peripheral devices",
+          "Integrate Libtomcrypt for cryptographic operations, including PIN-block handling and HSM key management",
+          "Maintain NSIS installers for fleet-wide deployment and Doxygen documentation for the Device APIs and Service Providers"
         ],
         "skills": ["C", "C++", "XFS", "JNI", "RPC/XDR", "XMODEM", "Libtomcrypt", "NSIS", "Doxygen", "SVN", "Windows Services"]
       },
       {
         "id": "sabadell",
         "name": "Financial Monitoring & KPI Suite (Banco Sabadell)",
-        "description": "Development and maintenance of a suite of Java enterprise applications that collect, process, and visualise financial transaction data and KPIs for Banco Sabadell's ATM network. The suite handles 50,000–100,000 financial records per day and powers executive dashboards for real-time operational visibility.",
+        "description": "Development and maintenance of a suite of enterprise Java applications that collect, process and visualise transaction data and KPIs for Banco Sabadell's ATM network. The suite handles 50,000–100,000 financial records per day and feeds executive dashboards with real-time operational data.",
         "bullets": [
-          "Maintained and extended 'Recolectoras' (Java 8 / Maven) — the high-throughput data collection engine processing 50–100k financial records per day",
-          "Developed backend services in 'Servicios' and 'Portal' enterprise Java web modules for ATM management and regulatory reporting",
-          "Implemented 'ELAE (RecBsFj)' Spring Boot web service for real-time financial event processing and alerting",
-          "Optimised Oracle database performance using B-tree and Bitmap indexes and Materialized Views for reporting queries",
-          "Built interactive KPI dashboards using AngularJS with D3.js and Apache ECharts data visualisations",
-          "Managed Maven multi-module build system and maintained GitLab CI/CD pipelines for automated testing and deployment"
+          "Maintain and extend Recolectoras (Java 8, Maven), the high-throughput collection engine that ingests 50,000–100,000 financial records per day",
+          "Develop backend services in the Servicios and Portal modules for ATM management and regulatory reporting",
+          "Implement ELAE (RecBsFj), a Spring Boot service for real-time financial event processing and alerting",
+          "Improve Oracle performance with B-tree and Bitmap indexes and Materialized Views, moving complex calculations out of the application layer",
+          "Build KPI dashboards with AngularJS, D3.js and Apache ECharts, with sub-second responses to complex financial queries through optimised JDBC/Oracle access",
+          "Maintain the Maven multi-module build (Java 8 and Java 21) and the GitLab CI/CD pipelines for automated testing and deployment"
         ],
-        "skills": ["Java", "Spring Boot", "Oracle DB", "AngularJS", "D3.js", "Apache ECharts", "Maven", "Hibernate", "GitLab CI", "SQL"]
+        "skills": ["Java", "Spring Boot", "Oracle DB", "SQL", "JDBC", "Hibernate", "Maven", "GitLab CI", "AngularJS", "D3.js", "Apache ECharts"]
       }
     ],
-    "skills": ["C", "C++", "Java", "Spring Boot", "Oracle DB", "AngularJS", "D3.js", "Maven", "Hibernate", "GitLab CI", "XFS", "JNI", "Windows Services"]
+    "skills": ["C", "C++", "Java", "Spring Boot", "Oracle DB", "SQL", "Hibernate", "Maven", "GitLab CI", "XFS", "JNI", "Windows Services", "AngularJS", "D3.js"]
   },
   {
     "id": "civenhance",
@@ -58,19 +57,18 @@
     "endDate": "2025-07",
     "current": false,
     "logo": null,
-    "description": "Sole developer of the CivEnhance e-Service-Learning matchmaking platform, an EU-funded research initiative at La Salle Ramon Llull connecting universities, teachers, students, and rural organisations. Led the full technical implementation from architecture design through to production deployment.",
+    "description": "Sole developer of the CivEnhance e-Service-Learning matchmaking platform, an EU-funded research project at La Salle Ramon Llull that connects European universities, teachers and students with rural community organisations. Owned the full technical implementation, from architecture design to production deployment.",
     "bullets": [
-      "Designed and built a full-stack platform with role-based access control for four distinct user types (universities, teachers, students, rural organisations)",
-      "Implemented an AI-powered chatbot recommender combining keyword scoring with Gemini LLM fallback — achieving 95% intent recognition accuracy",
-      "Delivered 3–55ms API response latency across all endpoints under production load",
-      "Built internationalisation (i18n) infrastructure supporting 6 languages with dynamic locale switching",
-      "Achieved WCAG accessibility compliance throughout the React/Astro frontend",
-      "Implemented Cypress end-to-end test suite and Docker containerisation for reproducible CI/CD deployments",
-      "Deployed the production platform live at matchmaking.civenhance.eu"
+      "Designed and built the platform end to end: Astro + React frontend, Node.js/Express REST API and PostgreSQL database",
+      "Implemented role-based access control for four user types: universities, teachers, students and rural organisations",
+      "Built the matchmaking engine on PostgreSQL with batch processing and Jaccard-similarity scoring, keeping API response times between 3 and 55 ms under production load",
+      "Delivered full internationalisation in 6 languages and WCAG accessibility compliance across the frontend",
+      "Set up Cypress end-to-end tests and Docker-based deployment for reproducible CI/CD, and launched the platform at matchmaking.civenhance.eu",
+      "Added a lightweight FAQ assistant (keyword matching with an LLM fallback)"
     ],
     "projectRef": 0,
     "liveUrl": "https://matchmaking.civenhance.eu",
-    "skills": ["Astro", "React", "Node.js", "Express.js", "PostgreSQL", "REST API", "Chatbot", "Gemini API", "Cypress", "Docker", "i18n", "WCAG", "JavaScript"]
+    "skills": ["Node.js", "Express.js", "REST API", "PostgreSQL", "Docker", "Cypress", "JavaScript", "Astro", "React", "i18n", "WCAG"]
   },
   {
     "id": "lasalle-ta",
@@ -82,12 +80,12 @@
     "endDate": "2024-07",
     "current": false,
     "logo": null,
-    "description": "Teaching assistant for the Microprocessors and Low-Level Programming course, supporting over 200 students across multiple academic groups through lab sessions, theoretical guidance, and code review.",
+    "description": "Teaching assistant for the Digital Systems & Microprocessors course, supporting more than 200 students across several groups through lab sessions, theory support and code review.",
     "bullets": [
-      "Assisted in teaching microprocessor architecture, instruction sets, and low-level programming to 200+ students",
-      "Guided students through practical lab exercises in Assembly language and C programming on embedded hardware",
-      "Conducted one-on-one tutoring and code review sessions, helping students debug complex low-level programs",
-      "Collaborated with professors to refine lab exercises and assessment criteria each semester"
+      "Taught microprocessor architecture, instruction sets and low-level programming to 200+ students",
+      "Guided lab work in Assembly and C on embedded hardware",
+      "Ran one-on-one tutoring and code review sessions to help students debug low-level programs",
+      "Worked with professors to refine lab exercises and assessment criteria each semester"
     ],
     "projectRef": null,
     "liveUrl": null,

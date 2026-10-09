@@ -1,8 +1,8 @@
 [
   {
-    "title": "CIVENHANCE — e-Service-Learning Matchmaking Platform",
-    "tagline": "Full-stack EU research platform connecting universities and rural organisations via AI matchmaking.",
-    "description": "A full-stack, API-driven web platform designed to connect universities, teachers, students, and rural organisations for e-Service-Learning initiatives. Features role-based access control for four user types, an automated matching algorithm using Jaccard similarity metrics, an AI-powered chatbot combining keyword scoring with Gemini LLM fallback (95% intent accuracy), and a robust i18n schema supporting 6 languages. The Astro + React frontend achieves WCAG accessibility compliance; the Node.js/Express REST API delivers 3–55ms response latency backed by PostgreSQL. Cypress E2E tests and Docker containerisation ensure CI/CD reliability.",
+    "title": "CivEnhance — e-Service-Learning Matchmaking Platform",
+    "tagline": "EU research platform that matches universities with rural community projects, built and deployed end to end.",
+    "description": "A full-stack, API-driven platform for e-Service-Learning that connects universities, teachers and students with rural organisations. Built as sole developer: an Astro + React frontend, a Node.js/Express REST API and a PostgreSQL database, with role-based access control for four user types and a matchmaking engine based on Jaccard similarity. The API responds in 3–55 ms under production load. The platform supports 6 languages, meets WCAG accessibility standards, and is validated with Cypress end-to-end tests and deployed with Docker. A small FAQ assistant (keyword matching with an LLM fallback) complements the core platform.",
     "year": 2025,
     "type": "Professional",
     "role": "Lead Full-Stack Developer",
@@ -12,12 +12,12 @@
     "liveUrl": "https://matchmaking.civenhance.eu",
     "report": "/assets/projects/civenhance-memoria.pdf",
     "media": { "type": "video", "url": "/assets/projects/Civenhance-Demo.mp4" },
-    "skills": ["Astro", "React", "Node.js", "Express.js", "PostgreSQL", "REST API", "Chatbot", "Gemini API", "Recommender Systems", "JavaScript", "Cypress", "Docker", "i18n", "WCAG"]
+    "skills": ["Node.js", "Express.js", "REST API", "PostgreSQL", "Docker", "Cypress", "JavaScript", "Astro", "React", "i18n", "WCAG"]
   },
   {
     "title": "Recommender System for Travel",
-    "tagline": "AI-powered travel destination recommender with a conversational chatbot interface.",
-    "description": "A personalized travel recommender system that provides destination suggestions based on user preferences and a knowledge base. Users interact with a chatbot that collects their interests and constraints, then returns ranked recommendations using content-based filtering.",
+    "tagline": "Travel destination recommender driven by a conversational chatbot.",
+    "description": "A recommender that suggests travel destinations from user preferences and a knowledge base. A chatbot gathers each user's interests and constraints, then returns destinations ranked by content-based filtering.",
     "year": 2024,
     "type": "Academic",
     "role": "Full-stack Developer",
@@ -31,8 +31,8 @@
   },
   {
     "title": "Spotify Replica",
-    "tagline": "Full-featured desktop music player with playlists, user auth, and song uploads.",
-    "description": "A Spotify-like desktop music application built with Java Swing. Features user authentication, song uploads, playlist creation and management, and a multi-threaded audio engine. Designed with a client-server architecture and a relational SQL backend.",
+    "tagline": "Desktop music player with user accounts, playlists and song uploads on a client-server architecture.",
+    "description": "A Spotify-style desktop application in Java Swing, built on a client-server architecture with a relational SQL backend. Features user authentication, song uploads, playlist creation and management, and a multi-threaded audio engine.",
     "year": 2023,
     "type": "Academic",
     "role": "Full-stack Developer",
@@ -46,8 +46,8 @@
   },
   {
     "title": "Book Discussion Web Application",
-    "tagline": "Community web platform for book lovers with REST API, forums, and user auth.",
-    "description": "A web platform for book enthusiasts built on a custom REST API using the Slim PHP framework and Twig templating engine. Features include user authentication with session management, a book search interface, threaded discussion forums, and full CRUD operations backed by a relational SQL database.",
+    "tagline": "Book community platform with a REST API, discussion forums and user authentication.",
+    "description": "A web platform for readers, built on a custom REST API with the Slim PHP framework and Twig templates. Includes session-based authentication, book search, threaded discussion forums and full CRUD operations on a relational SQL database.",
     "year": 2024,
     "type": "Academic",
     "role": "Full-stack Developer",
@@ -61,8 +61,8 @@
   },
   {
     "title": "HAL 9000 — Client-Server Music Streaming",
-    "tagline": "Distributed music streaming service using sockets, threads, pipes, and semaphores.",
-    "description": "A client-server system in C simulating a distributed music streaming service. Implements low-level IPC mechanisms including POSIX sockets for network communication, threads for concurrent client handling, named/unnamed pipes for inter-process messaging, POSIX message queues, and semaphores for synchronisation. Designed to replicate real-world streaming service constraints at the OS level.",
+    "tagline": "Client-server music streaming service in C, built on sockets, threads, pipes and semaphores.",
+    "description": "A distributed music streaming service written in C that reproduces real-world streaming constraints at the operating-system level. It uses POSIX sockets for network communication, threads for concurrent clients, named and unnamed pipes and POSIX message queues for inter-process messaging, and semaphores for synchronisation.",
     "year": 2023,
     "type": "Academic",
     "role": "Systems Programmer",
@@ -76,8 +76,8 @@
   },
   {
     "title": "Limited-Slip Differential Controller (STM32F429I)",
-    "tagline": "Real-time embedded LSD controller with accelerometer feedback and Java visualiser.",
-    "description": "An embedded system running on the STM32F429I Discovery board that measures individual wheel speeds via sensors and dynamically adjusts torque distribution using accelerometer data to simulate a limited-slip differential. A companion Java application communicates with the board over serial to provide a real-time graphical dashboard for visualising speed, torque, and differential state.",
+    "tagline": "Real-time limited-slip differential controller on STM32, with a live Java dashboard.",
+    "description": "Embedded software for the STM32F429I Discovery board that measures each wheel's speed and redistributes torque using accelerometer data, simulating a limited-slip differential. A companion Java application talks to the board over serial and shows speed, torque and differential state in real time.",
     "year": 2024,
     "type": "Academic",
     "role": "Embedded Systems Developer",
@@ -91,8 +91,8 @@
   },
   {
     "title": "Z Language Compiler",
-    "tagline": "Full compiler pipeline for a custom C-like language, targeting MIPS assembly.",
-    "description": "A full compiler for 'Z', a custom simplified C-like language with its own unique syntax (keywords like bro, CEO, fact, swipe, throwback). Implemented entirely in Java, the pipeline covers pre-compilation (comment stripping), lexical analysis, syntax analysis (recursive-descent parser), semantic analysis with symbol table management, three-address intermediate code generation, and final MIPS assembly target code generation. Supports integers, floats, arrays, functions with recursion, conditionals, loops (for/while), switch statements, and error recovery with descriptive diagnostics.",
+    "tagline": "Complete compiler for a custom C-like language, from lexer to MIPS assembly.",
+    "description": "A compiler for Z, a simplified C-like language with its own syntax (keywords such as bro, CEO, fact, swipe and throwback), written entirely in Java. The pipeline covers pre-processing, lexical analysis, a recursive-descent parser, semantic analysis with a symbol table, three-address intermediate code and MIPS assembly generation. Z supports integers, floats, arrays, recursive functions, conditionals, for/while loops and switch statements, with error recovery and descriptive diagnostics.",
     "year": 2024,
     "type": "Academic",
     "role": "Language Designer & Compiler Developer",
@@ -106,11 +106,11 @@
   },
   {
     "title": "MDCS — ATM Banking Middleware",
-    "tagline": "XFS-compliant Windows Service Providers powering ~11,000 CaixaBank ATMs across Spain.",
-    "description": "Maintenance and extension of the Device Control Software (MDCS) powering approximately 11,000 CaixaBank ATMs. The system implements the XFS (eXtensions for Financial Services) standard via Windows Service Providers, enabling hardware-agnostic ATM software across multiple device vendors. Key contributions include XFS v3.0–3.5 Service Providers for card readers, cash dispensers and PIN pads; JNI bridges between Java clients and C/C++ device drivers; XMODEM-based remote firmware update routines; Libtomcrypt integration for PIN-block cryptography; NSIS deployment installers; and Doxygen API documentation maintenance.",
+    "tagline": "XFS middleware in C/C++ running on ~11,000 CaixaBank ATMs across Spain.",
+    "description": "Maintenance and extension of the Device Control Software (MDCS) that runs on approximately 11,000 CaixaBank ATMs. MDCS implements the XFS (eXtensions for Financial Services) standard as Windows Service Providers, so ATM software can drive hardware from multiple vendors through a single standard interface. The work covers XFS v3.0–3.5 Service Providers for card readers, cash dispensers and PIN pads; JNI bridges between Java clients and C/C++ device drivers; efficiency-focused C++ with a minimal CPU and memory footprint; XMODEM remote firmware updates; Libtomcrypt PIN-block cryptography; NSIS deployment installers; and Doxygen API documentation.",
     "year": 2024,
     "type": "Professional",
-    "role": "Application Developer",
+    "role": "Software Engineer",
     "teamSize": null,
     "status": "Active",
     "github": null,
@@ -121,17 +121,17 @@
   },
   {
     "title": "Financial Monitoring & KPI Suite",
-    "tagline": "Enterprise Java suite processing 50–100k financial records/day for Banco Sabadell's ATM network.",
-    "description": "A suite of Java enterprise applications that collect, process, and visualise financial transaction data and KPIs for Banco Sabadell's ATM network. The suite processes 50,000–100,000 financial records per day across four sub-systems: 'Recolectoras' (Java 8/Maven high-throughput collection engine), 'Servicios' and 'Portal' (backend ATM management and reporting modules), and 'ELAE/RecBsFj' (Spring Boot real-time event processing service). Oracle DB performance was optimised via B-tree/Bitmap indexes and Materialized Views. Interactive executive dashboards were built with AngularJS, D3.js, and Apache ECharts.",
+    "tagline": "Enterprise Java and Oracle suite processing 50–100k financial records a day for Banco Sabadell's ATM network.",
+    "description": "A suite of enterprise Java applications (Java 8 and Java 21, Spring Boot) that collects, processes and visualises transaction data and KPIs for Banco Sabadell's ATM network, handling 50,000–100,000 financial records per day. It spans four subsystems: Recolectoras, the high-throughput collection engine (Java 8, Maven); Servicios and Portal, backend modules for ATM management and regulatory reporting; and ELAE (RecBsFj), a Spring Boot service for real-time event processing and alerting. Oracle performance is tuned with B-tree and Bitmap indexes and Materialized Views, and executive dashboards are built with AngularJS, D3.js and Apache ECharts.",
     "year": 2024,
     "type": "Professional",
-    "role": "Application Developer",
+    "role": "Software Engineer",
     "teamSize": null,
     "status": "Active",
     "github": null,
     "liveUrl": null,
     "report": null,
     "media": { "type": "none" },
-    "skills": ["Java", "Spring Boot", "Oracle DB", "AngularJS", "D3.js", "Apache ECharts", "Maven", "Hibernate", "GitLab CI", "SQL"]
+    "skills": ["Java", "Spring Boot", "Oracle DB", "SQL", "JDBC", "Hibernate", "Maven", "GitLab CI", "AngularJS", "D3.js", "Apache ECharts"]
   }
 ]

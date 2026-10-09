@@ -39,7 +39,7 @@ export function DetailView({ flagship, layout = "left", headingLevel = 3, standa
                     </div>
                     <p className="detail-view__caption mono">
                         <span>Detail {flagship.key}</span>
-                        <span>{flagship.figure.context}</span>
+                        <span>{flagship.caption}</span>
                         <span>Not to scale</span>
                     </p>
                     <PartsList parts={flagship.parts} activeItem={activeItem} onItem={setActiveItem} />
@@ -64,10 +64,12 @@ export function DetailView({ flagship, layout = "left", headingLevel = 3, standa
                                 <dd>{flagship.employer}</dd>
                             </div>
                         )}
-                        <div>
-                            <dt>Role</dt>
-                            <dd>{project.role}</dd>
-                        </div>
+                        {!standalone && (
+                            <div>
+                                <dt>Role</dt>
+                                <dd>{project.role}</dd>
+                            </div>
+                        )}
                         <div>
                             <dt>Period</dt>
                             <dd>
@@ -77,7 +79,7 @@ export function DetailView({ flagship, layout = "left", headingLevel = 3, standa
                         </div>
                     </dl>
 
-                    {!standalone && !flagship.hideTagline && <p className="detail-view__tagline">{project.tagline}</p>}
+                    {!standalone && <p className="detail-view__tagline">{project.tagline}</p>}
 
                     <ul className="detail-view__bullets">
                         {bullets.map((b) => <li key={b}>{b}</li>)}

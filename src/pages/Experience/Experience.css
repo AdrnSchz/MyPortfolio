@@ -260,7 +260,7 @@
     padding: 1.4rem 1.5rem 1.6rem;
 }
 
-.exp-note + .exp-note:not(.exp-note--wide) {
+.exp-note + .exp-note {
     border-top: 1px solid var(--line-dim);
 }
 
@@ -302,6 +302,43 @@
     max-width: 76ch;
     color: var(--ink-2);
     line-height: 1.7;
+}
+
+.exp-skills {
+    margin: 0.4rem 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.exp-skills__row {
+    display: grid;
+    grid-template-columns: 13rem minmax(0, 1fr);
+    gap: 0.3rem 1.5rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.exp-skills__row:last-child {
+    border-bottom: 0;
+}
+
+.exp-skills dt {
+    font-weight: 700;
+}
+
+.exp-skills dd {
+    margin: 0;
+    padding-top: 0.15rem;
+}
+
+.exp-skills .stack {
+    font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+    .exp-skills__row {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 .exp-langs {

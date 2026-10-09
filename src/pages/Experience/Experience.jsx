@@ -2,17 +2,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRight, FaExternalLinkAlt, FaPlus, FaMinus } from "react-icons/fa";
 import experience from "../../data/experience.json";
+import profile from "../../data/profile.json";
 import { dateRange, duration } from "../../utils/dates";
 import "./Experience.css";
 
 const REV_LETTERS = "ABCDEFGHIJ";
-
-const LANGUAGES = [
-    { lang: "Spanish", level: "Native" },
-    { lang: "Catalan", level: "Native" },
-    { lang: "English", level: "C1 Advanced" },
-    { lang: "French", level: "A2 Elementary" },
-];
 
 function SubProject({ project }) {
     const [open, setOpen] = useState(false);
@@ -116,7 +110,7 @@ export function Experience() {
             <header className="experience-page__hero">
                 <h1 className="experience-page__title">Work Experience</h1>
                 <p className="experience-page__subtitle">
-                    My professional journey — from research projects to enterprise banking systems.
+                    From EU research platforms to enterprise banking systems, newest first.
                 </p>
             </header>
 
@@ -126,36 +120,51 @@ export function Experience() {
                 ))}
             </ol>
 
-            {/* Education, certifications, languages */}
-            <section className="exp-notes" aria-label="Education, certifications and languages">
-
+            {/* Skills, education, certifications, languages */}
+            <section className="exp-notes" aria-label="Skills, education, certifications and languages">
                 <div className="exp-notes__grid">
                     <div className="exp-note exp-note--wide">
-                        <h2 id="edu-heading" className="exp-note__label mono">Education</h2>
-                        <h3 className="exp-note__title">Bachelor in International Computer Engineering</h3>
+                        <h2 className="exp-note__label mono">Technical skills</h2>
+                        <dl className="exp-skills">
+                            {profile.skills.map(({ group, items }) => (
+                                <div key={group} className="exp-skills__row">
+                                    <dt>{group}</dt>
+                                    <dd>
+                                        <ul className="stack">
+                                            {items.map((item) => <li key={item}>{item}</li>)}
+                                        </ul>
+                                    </dd>
+                                </div>
+                            ))}
+                        </dl>
+                    </div>
+
+                    <div className="exp-note exp-note--wide">
+                        <h2 className="exp-note__label mono">Education</h2>
+                        <h3 className="exp-note__title">{profile.education.degree}</h3>
                         <p className="exp-note__meta mono">
-                            <span>La Salle Ramon Llull · Barcelona, Spain</span>
-                            <span>Bachelor&apos;s Degree</span>
-                            <span>Sep 2021 – Jul 2025</span>
+                            <span>{profile.education.school}</span>
+                            <span>{profile.education.location}</span>
+                            <span>{profile.education.period}</span>
                         </p>
-                        <p className="exp-note__text">
-                            Four-year engineering degree with a focus on software engineering, computer architecture,
-                            and systems programming. Developed strong foundations in algorithms, data structures,
-                            operating systems, compilers, networks, databases, and software design.
-                        </p>
+                        <p className="exp-note__text">{profile.education.description}</p>
                     </div>
 
                     <div className="exp-note">
                         <h2 className="exp-note__label mono">Certifications</h2>
-                        <h3 className="exp-note__title">Microsoft Azure Fundamentals</h3>
-                        <p className="exp-note__meta mono"><span>Microsoft · AZ-900</span></p>
+                        {profile.certifications.map((c) => (
+                            <div key={c.name}>
+                                <h3 className="exp-note__title">{c.name}</h3>
+                                <p className="exp-note__meta mono"><span>{c.issuer}</span></p>
+                            </div>
+                        ))}
                     </div>
 
                     <div className="exp-note">
                         <h2 className="exp-note__label mono">Languages</h2>
                         <table className="exp-langs">
                             <tbody>
-                                {LANGUAGES.map(({ lang, level }) => (
+                                {profile.languages.map(({ lang, level }) => (
                                     <tr key={lang}>
                                         <th scope="row">{lang}</th>
                                         <td className="mono">{level}</td>

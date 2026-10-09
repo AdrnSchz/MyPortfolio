@@ -39,23 +39,23 @@ export function Home() {
                     </h1>
 
                     <p className="home-title__intro">
-                        Based in Barcelona, Spain — Currently working at Fujitsu as an Application Developer in the banking sector.
+                        Based in Barcelona. At Fujitsu since November 2024, building and maintaining
+                        banking systems in C/C++ and Java for two major Spanish banks.
                     </p>
 
                     <div className="home-title__notes">
                         <h2 className="home-title__notes-heading mono">Notes</h2>
                         <ol>
                             <li>
-                                Software engineer with professional experience across banking-grade systems,
-                                full-stack web platforms, and low-level embedded software. Currently developing
-                                ATM middleware (C/C++) and financial monitoring applications (Java/Spring Boot)
-                                for two major Spanish banks at Fujitsu.
+                                Professional experience across banking-grade systems, full-stack web platforms
+                                and low-level embedded software: ATM middleware in C/C++ for CaixaBank, financial
+                                monitoring in Java/Spring Boot for Banco Sabadell, and an EU research platform
+                                built end to end as sole developer.
                             </li>
                             <li>
-                                My goal is to keep growing as an engineer across the backend —
-                                from low-level system internals to modern distributed web services.
-                                I enjoy tackling complex problems with clean, well-structured code
-                                and a focus on reliability and performance.
+                                Focused on the backend, from low-level system internals to distributed
+                                web services. I like solving complex problems with clean, well-structured
+                                code, with reliability and performance as first concerns.
                             </li>
                         </ol>
                     </div>
@@ -78,7 +78,7 @@ export function Home() {
                         <div className="title-block__cell title-block__cell--wide">
                             <dt>Current position</dt>
                             <dd>
-                                Application Developer, Fujitsu
+                                Software Engineer, Fujitsu
                                 <span className="rev-mark">Current</span>
                             </dd>
                         </div>

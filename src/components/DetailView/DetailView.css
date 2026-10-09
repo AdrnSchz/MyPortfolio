@@ -61,6 +61,11 @@
     border-bottom: 1px solid var(--line-dim);
 }
 
+/* A lone last cell spans the row so the grid always closes */
+.detail-view__meta > div:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+}
+
 .detail-view__meta dt {
     font-size: 0.66rem;
     letter-spacing: 0.12em;

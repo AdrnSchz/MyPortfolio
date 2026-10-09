@@ -1,0 +1,24 @@
+{
+  "skills": [
+    { "group": "Languages", "items": ["C", "C++", "Java", "SQL (Oracle, PostgreSQL)", "Python", "JavaScript", "HTML/CSS"] },
+    { "group": "Frameworks & standards", "items": ["Spring Boot", "Hibernate", "XFS (v3.0–3.5)", "RPC/XDR", "Express.js", "Astro", "React", "Vue.js", "D3.js", "Apache ECharts"] },
+    { "group": "Tools & DevOps", "items": ["Docker", "Maven", "Git", "SVN", "GitLab CI/CD", "Cypress (E2E testing)"] },
+    { "group": "Methodologies", "items": ["Agile (Scrum)", "Waterfall", "Jira", "Technical documentation"] }
+  ],
+  "education": {
+    "degree": "Bachelor in International Computer Engineering",
+    "school": "La Salle Ramon Llull University (ETSELS)",
+    "location": "Barcelona, Spain",
+    "period": "Sep 2021 – Jul 2025",
+    "description": "Four-year engineering degree focused on software engineering, computer architecture and systems programming, with strong foundations in algorithms, data structures, operating systems, compilers, networks, databases and software design."
+  },
+  "certifications": [
+    { "name": "Microsoft Certified: Azure Fundamentals", "issuer": "Microsoft · AZ-900" }
+  ],
+  "languages": [
+    { "lang": "Spanish", "level": "Native" },
+    { "lang": "Catalan", "level": "Native" },
+    { "lang": "English", "level": "C1 Advanced (Cambridge)" },
+    { "lang": "French", "level": "A2 Elementary" }
+  ]
+}

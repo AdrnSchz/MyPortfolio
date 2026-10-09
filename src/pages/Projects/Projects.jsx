@@ -130,7 +130,7 @@ export function Projects() {
                     <div>
                         <h1 className="projects-page__title">Projects</h1>
                         <p className="projects-page__subtitle">
-                            A collection of my academic and personal work.
+                            Professional, academic and personal work. Open any row for the full project sheet.
                         </p>
                     </div>
                     <p className="projects-page__count mono" aria-live="polite">
