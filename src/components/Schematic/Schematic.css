@@ -1,0 +1,190 @@
+.schematic {
+    margin: 0;
+    width: 100%;
+}
+
+.schematic__svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+/* Nodes */
+.sch-node rect {
+    fill: var(--sheet);
+    stroke: var(--line);
+    stroke-width: 1.25;
+    transition: stroke 200ms var(--ease-out), fill 200ms var(--ease-out);
+}
+
+.sch-node__label {
+    font-family: var(--font-draw);
+    font-weight: 700;
+    font-size: 14px;
+    fill: var(--ink);
+}
+
+.sch-node__sub {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    fill: var(--ink-2);
+}
+
+.sch-node--device rect {
+    stroke-dasharray: 4 3;
+    stroke: var(--line-dim);
+}
+
+.sch-node--device .sch-node__label {
+    font-weight: 400;
+    font-size: 13px;
+    fill: var(--ink-2);
+}
+
+.sch-node--quiet rect {
+    stroke: var(--line-dim);
+}
+
+.sch-node--quiet .sch-node__label {
+    font-weight: 400;
+    fill: var(--ink-2);
+}
+
+.sch-node.is-active rect {
+    fill: var(--sheet-hi);
+    stroke: var(--ink);
+}
+
+/* Edges */
+.sch-edge path {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 1.25;
+}
+
+.sch-edge.is-active path {
+    stroke: var(--ink);
+}
+
+.sch-arrowhead {
+    fill: var(--line);
+}
+
+.sch-edge__label--figure {
+    font-size: 15px;
+    font-weight: 700;
+    fill: var(--ink);
+}
+
+.sch-edge__label {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    fill: var(--ink-2);
+    dominant-baseline: middle;
+}
+
+/* Boundary (container) */
+.sch-boundary rect {
+    fill: none;
+    stroke: var(--line-dim);
+    stroke-dasharray: 8 4 2 4;
+    stroke-width: 1;
+}
+
+.sch-boundary.is-active rect {
+    stroke: var(--ink-2);
+}
+
+.sch-boundary__label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    fill: var(--ink-3);
+}
+
+/* Balloons: item callouts linking to the parts list */
+.sch-balloon {
+    cursor: default;
+}
+
+.sch-balloon circle {
+    fill: var(--sheet);
+    stroke: var(--line);
+    stroke-width: 1;
+    transition: fill 160ms var(--ease-out), stroke 160ms var(--ease-out);
+}
+
+.sch-balloon text {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    fill: var(--ink);
+}
+
+.sch-leader {
+    stroke: var(--line);
+    stroke-width: 1;
+}
+
+.sch-balloon.is-active circle {
+    fill: var(--ink);
+    stroke: var(--ink);
+}
+
+.sch-balloon.is-active text {
+    fill: var(--sheet);
+}
+
+/* Dimensions */
+.sch-dim line {
+    stroke: var(--line);
+    stroke-width: 0.9;
+}
+
+.sch-dim__line {
+    stroke-width: 1.1;
+}
+
+.sch-dim__gap {
+    fill: var(--sheet);
+}
+
+.sch-dim__label {
+    font-family: var(--font-mono);
+    font-size: 17px;
+    font-weight: 700;
+    fill: var(--ink);
+}
+
+/* Draw-on: only when armed (started below the fold, motion allowed) */
+.schematic--armed .sch-edge path,
+.schematic--armed .sch-dim line,
+.schematic--armed .sch-leader {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+}
+
+.schematic--armed .sch-arrowhead,
+.schematic--armed .sch-dim__label,
+.schematic--armed .sch-edge__label {
+    opacity: 0;
+}
+
+.schematic--drawn .sch-edge path,
+.schematic--drawn .sch-dim line,
+.schematic--drawn .sch-leader {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 900ms var(--ease-out);
+}
+
+.schematic--drawn .sch-dim line {
+    transition-delay: 450ms;
+}
+
+.schematic--drawn .sch-arrowhead,
+.schematic--drawn .sch-dim__label,
+.schematic--drawn .sch-edge__label {
+    opacity: 1;
+    transition: opacity 400ms var(--ease-out) 700ms;
+}

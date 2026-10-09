@@ -1,0 +1,57 @@
+.parts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.parts-list__caption {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+}
+
+/* Two columns of item rows, ruled like a drawing's bill of materials */
+.parts-list__rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--line-dim);
+    border-left: 1px solid var(--line-dim);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.parts-list__rows li {
+    display: grid;
+    grid-template-columns: 2.4rem minmax(0, 1fr);
+    align-items: center;
+    border-right: 1px solid var(--line-dim);
+    border-bottom: 1px solid var(--line-dim);
+    transition: background 140ms var(--ease-out), color 140ms var(--ease-out);
+}
+
+.parts-list__rows li > span {
+    padding: 0.38rem 0.7rem;
+}
+
+.parts-list__n {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--rule);
+    color: var(--ink-3);
+}
+
+.parts-list__rows li.is-active {
+    background: var(--ink);
+    color: var(--sheet);
+}
+
+.parts-list__rows li.is-active .parts-list__n {
+    color: var(--sheet);
+}

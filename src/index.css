@@ -1,13 +1,271 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background: #222;
-  font-family: "Fira Code", monospace;
-  overflow-x: hidden;
+:root {
+  /* Sheet (cyanotype ground) */
+  --sheet: #0b1d30;
+  --sheet-lo: #08172a;
+  --sheet-hi: #12304d;
+  --grid-minor: rgba(127, 166, 201, 0.055);
+  --grid-major: rgba(127, 166, 201, 0.1);
+
+  /* Line work */
+  --line: #7fa6c9;
+  --line-dim: #3a5d7e;
+  --rule: rgba(127, 166, 201, 0.28);
+
+  /* Lettering */
+  --ink: #e6eef5;
+  --ink-2: #b0c5d8;
+  --ink-3: #86a2bc;
+
+  /* Revision ink: the one exception to the blue family, reserved for "current" */
+  --red: #ff6a5a;
+
+  --font-draw: "B612", "Segoe UI", sans-serif;
+  --font-mono: "B612 Mono", ui-monospace, monospace;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --frame: 20px;
+  --gutter: clamp(16px, 4vw, 56px);
+  --measure: 68ch;
+
+  color-scheme: dark;
 }
 
-h1 {
-  text-align: center;
-  color: #FFF;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--sheet);
+  scroll-behavior: smooth;
+  scrollbar-color: var(--line-dim) var(--sheet-lo);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--sheet);
+  background-image:
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-draw);
+  font-size: 17px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--sheet);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sheet-lo);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line-dim);
+  border: 3px solid var(--sheet-lo);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--line);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--line-dim);
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  text-decoration-color: var(--ink);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--ink);
+  outline-offset: 3px;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+input,
+select {
+  font: inherit;
+  color: inherit;
+  caret-color: var(--red);
+}
+
+input::placeholder {
+  color: var(--ink-3);
+  opacity: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.app {
+  padding: var(--frame);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__main {
+  flex: 1;
+}
+
+/* Revision mark: red ink, reserved for what is current */
+.rev-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.rev-mark::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-inline: 0.36em solid transparent;
+  border-bottom: 0.62em solid var(--red);
+}
+
+/* Shared drafting controls */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  min-height: 44px;
+  padding: 0.55em 1.1em;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-draw);
+  font-size: 0.94rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 180ms var(--ease-out), color 180ms var(--ease-out), border-color 180ms var(--ease-out);
+}
+
+.btn svg {
+  width: 1em;
+  height: 1em;
+  flex: none;
+}
+
+.btn:hover {
+  background: var(--sheet-hi);
+  border-color: var(--ink);
+}
+
+.btn--solid {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--sheet);
+}
+
+.btn--solid:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--sheet);
+}
+
+.btn--plain {
+  border-color: transparent;
+  padding-inline: 0.4em;
+}
+
+.btn--plain:hover {
+  background: transparent;
+  border-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+/* Inline technology list: parts named in mono, separated by thin dots */
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2em 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--ink-2);
+}
+
+.stack li:not(:last-child)::after {
+  content: "·";
+  margin: 0 0.6em;
+  color: var(--line-dim);
 }

@@ -1,466 +1,370 @@
-/* ═══════════════════════════════════════════════════════════
-   Experience Page
-   ═══════════════════════════════════════════════════════════ */
-
 .experience-page {
-    min-height: 100vh;
-    background-color: #1e1e1e;
-    color: #fff;
-    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 7vw, 5rem);
+    padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter) clamp(4rem, 8vw, 6rem);
 }
 
-/* Hero */
 .experience-page__hero {
-    background-color: #1a1a1a;
-    padding: 70px 40px 50px;
-    text-align: center;
-    border-bottom: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 
 .experience-page__title {
-    font-size: 2.8rem;
-    font-weight: bold;
-    color: #fff;
-    margin: 0 0 12px;
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    text-transform: uppercase;
 }
 
 .experience-page__subtitle {
+    max-width: 60ch;
     font-size: 1.1rem;
-    color: #aaa;
+    color: var(--ink-2);
+}
+
+/* ── Revisions on one dated vertical rule ── */
+.exp-revs {
+    --date-col: 13rem;
+    --rule-x: calc(var(--date-col) + 1.5rem);
+    position: relative;
+    list-style: none;
     margin: 0;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Timeline container */
-.experience-page__timeline {
-    max-width: 900px;
-    margin: 60px auto 20px;
-    padding: 0 24px;
-}
-
-/* Each experience item row */
-.exp-item {
-    display: flex;
-    gap: 24px;
-    margin-bottom: 0;
-}
-
-/* ── Timeline column ── */
-.exp-timeline {
+    padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    flex-shrink: 0;
-    width: 24px;
-    padding-top: 6px;
+    gap: clamp(3.5rem, 7vw, 5rem);
 }
 
-.exp-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #555;
-    border: 2px solid #333;
-    flex-shrink: 0;
-    transition: background 0.3s, border-color 0.3s;
+.exp-revs::before {
+    content: "";
+    position: absolute;
+    top: 0.4rem;
+    bottom: 0;
+    left: var(--rule-x);
+    width: 1px;
+    background: var(--line);
 }
 
-.exp-dot--active {
-    background: #ff6600;
-    border-color: #ff6600;
-    box-shadow: 0 0 10px #ff660088;
+.exp-rev {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--date-col) 3rem minmax(0, 1fr);
+    align-items: start;
 }
 
-.exp-line {
-    width: 2px;
-    flex: 1;
-    background: #333;
-    margin-top: 6px;
-    min-height: 40px;
-}
-
-/* ── Experience card ── */
-.exp-card {
-    flex: 1;
-    background: #292929;
-    border: 1px solid #383838;
-    border-radius: 12px;
-    padding: 28px;
-    margin-bottom: 36px;
-    transition: border-color 0.25s;
-}
-
-.exp-card:hover {
-    border-color: #ff660055;
-}
-
-.exp-card--education {
-    border-color: #4a9eff33;
-}
-
-.exp-card--education:hover {
-    border-color: #4a9eff88;
-}
-
-.exp-card__header {
-    margin-bottom: 16px;
-}
-
-.exp-card__title-row {
+.exp-rev__date {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 4px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+    padding-top: 0.45rem;
+    text-align: right;
 }
 
-.exp-card__role {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #fff;
-    margin: 0;
-}
-
-.exp-card__current-badge {
-    font-size: 0.7rem;
-    padding: 2px 8px;
-    border-radius: 20px;
-    background: #ff660022;
-    color: #ff6600;
-    border: 1px solid #ff660055;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.exp-card__company {
-    font-size: 1rem;
-    color: #ff6600;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.exp-card__info-row {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
+.exp-rev__range {
     font-size: 0.85rem;
+    color: var(--ink);
 }
 
-.exp-card__type-pill {
-    padding: 2px 10px;
-    border-radius: 20px;
-    border: 1px solid;
+.exp-rev__dur {
+    font-size: 0.75rem;
+    color: var(--ink-3);
+}
+
+.exp-rev__marker {
+    justify-self: center;
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0.15rem;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--sheet);
+    font-size: 0.85rem;
+    color: var(--ink);
+    position: relative;
+    z-index: 1;
+}
+
+.exp-rev--current .exp-rev__marker {
+    border-color: var(--red);
+    color: var(--red);
+}
+
+.exp-rev__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    max-width: 76ch;
+    padding-left: 1rem;
+}
+
+.exp-rev__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.exp-rev__role {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.3rem 0.9rem;
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    letter-spacing: -0.01em;
+}
+
+.exp-rev__company {
+    font-size: 1.1rem;
+    color: var(--ink);
+}
+
+.exp-rev__info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 0;
     font-size: 0.78rem;
-    font-weight: 600;
+    color: var(--ink-3);
 }
 
-.exp-card__dates {
-    color: #ccc;
+.exp-rev__info span:not(:last-child)::after {
+    content: "·";
+    margin: 0 0.6em;
+    color: var(--line-dim);
 }
 
-.exp-card__duration {
-    color: #888;
-    font-style: italic;
-}
-
-.exp-card__location {
-    color: #888;
-}
-
-.exp-card__desc {
-    font-size: 0.92rem;
-    color: #bbb;
+.exp-rev__desc {
+    color: var(--ink-2);
     line-height: 1.7;
-    margin: 0 0 16px;
 }
 
-/* Bullet points */
 .exp-bullets {
     list-style: none;
-    padding: 0;
-    margin: 0 0 18px;
-}
-
-.exp-bullet {
-    font-size: 0.88rem;
-    color: #ccc;
-    line-height: 1.6;
-    padding: 4px 0 4px 20px;
-    position: relative;
-}
-
-.exp-bullet::before {
-    content: "▸";
-    position: absolute;
-    left: 0;
-    color: #ff6600;
-    font-size: 0.8rem;
-    top: 5px;
-}
-
-/* Skills */
-.exp-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-
-/* Card footer */
-.exp-card__footer {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid #383838;
-}
-
-.exp-card__project-link {
-    flex-shrink: 0;
-    font-size: 0.85rem;
-    color: #ff6600;
-    text-decoration: none;
-    font-weight: 600;
-    white-space: nowrap;
-    padding: 6px 14px;
-    border: 1px solid #ff660055;
-    border-radius: 6px;
-    transition: background 0.2s, border-color 0.2s;
-}
-
-.exp-card__project-link:hover {
-    background: #ff660015;
-    border-color: #ff6600;
-}
-
-/* Sub-projects accordion */
-.exp-subprojects {
-    margin: 20px 0 6px;
-}
-
-.exp-subprojects__heading {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #888;
-    margin: 0 0 12px;
-    font-weight: 600;
-}
-
-.exp-subproject {
-    border: 1px solid #383838;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    overflow: hidden;
-    transition: border-color 0.2s;
-}
-
-.exp-subproject--open {
-    border-color: #ff660044;
-}
-
-.exp-subproject__toggle {
-    width: 100%;
-    background: #232323;
-    border: none;
-    color: #ddd;
-    padding: 12px 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-align: left;
-    font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: background 0.2s, color 0.2s;
-}
-
-.exp-subproject__toggle:hover {
-    background: #2d2d2d;
-    color: #fff;
-}
-
-.exp-subproject--open .exp-subproject__toggle {
-    color: #ff6600;
-    background: #2a2520;
-}
-
-.exp-subproject__toggle-icon {
-    color: #ff6600;
-    font-size: 0.9rem;
-    flex-shrink: 0;
-}
-
-.exp-subproject__name {
-    flex: 1;
-}
-
-.exp-subproject__body {
-    padding: 16px 18px;
-    background: #252525;
-    border-top: 1px solid #333;
-}
-
-.exp-subproject__desc {
-    font-size: 0.88rem;
-    color: #bbb;
-    line-height: 1.65;
-    margin: 0 0 14px;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   Education section
-   ═══════════════════════════════════════════════════════════ */
-
-.experience-page__education {
-    max-width: 900px;
-    margin: 0 auto 20px;
-    padding: 0 24px;
-}
-
-.experience-page__section-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
-    margin: 0 0 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #ff660033;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   Certifications & Languages
-   ═══════════════════════════════════════════════════════════ */
-
-.experience-page__extra {
-    max-width: 900px;
-    margin: 40px auto 0;
-    padding: 0 24px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-}
-
-.exp-extra-card {
-    background: #292929;
-    border: 1px solid #383838;
-    border-radius: 12px;
-    padding: 24px;
-}
-
-.exp-extra-card__title {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    margin: 0 0 18px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #383838;
-}
-
-.exp-extra-card__items {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 0.7rem;
+    color: var(--ink-2);
 }
 
-.exp-cert-item {
+.exp-bullets li {
+    position: relative;
+    padding-left: 1.6rem;
+}
+
+.exp-bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.8em;
+    width: 0.9rem;
+    height: 1px;
+    background: var(--line);
+}
+
+/* Sub-projects */
+.exp-subs {
     display: flex;
-    align-items: flex-start;
-    gap: 12px;
+    flex-direction: column;
+    border-top: 1px solid var(--line-dim);
 }
 
-.exp-cert-item__icon {
-    font-size: 1.4rem;
-    flex-shrink: 0;
-    margin-top: 2px;
+.exp-subs__heading {
+    padding: 0.9rem 0 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
 }
 
-.exp-cert-item__name {
-    display: block;
-    font-size: 0.9rem;
-    color: #e0e0e0;
-    font-weight: 600;
+.exp-sub {
+    border-bottom: 1px solid var(--line-dim);
 }
 
-.exp-cert-item__issuer {
-    display: block;
-    font-size: 0.8rem;
-    color: #888;
-    margin-top: 2px;
-}
-
-.exp-lang-item {
+.exp-sub__toggle {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.9rem;
+    width: 100%;
+    min-height: 54px;
+    padding: 0.6rem 0.25rem;
+    background: transparent;
+    border: 0;
+    text-align: left;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 160ms var(--ease-out);
 }
 
-.exp-lang-item__flag {
-    font-size: 1.2rem;
-    flex-shrink: 0;
-    width: 24px;
-    text-align: center;
+.exp-sub__toggle:hover {
+    background: var(--sheet-hi);
 }
 
-.exp-lang-item__name {
-    font-size: 0.9rem;
-    color: #e0e0e0;
-    font-weight: 600;
-    flex: 1;
+.exp-sub__icon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 1.4rem;
+    height: 1.4rem;
+    border: 1px solid var(--line);
+    color: var(--line);
 }
 
-.exp-lang-item__level {
+.exp-sub__icon svg {
+    width: 0.6rem;
+    height: 0.6rem;
+}
+
+.exp-sub__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    padding: 0.4rem 0 1.5rem 2.3rem;
+}
+
+.exp-sub__desc {
+    color: var(--ink-2);
+    line-height: 1.7;
+}
+
+.exp-rev__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.1rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--rule);
+}
+
+/* ── Notes: education, certifications, languages ── */
+.exp-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.exp-notes__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 1px solid var(--line-dim);
+}
+
+.exp-note {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.4rem 1.5rem 1.6rem;
+}
+
+.exp-note + .exp-note:not(.exp-note--wide) {
+    border-top: 1px solid var(--line-dim);
+}
+
+.exp-note:last-child {
+    border-left: 1px solid var(--line-dim);
+}
+
+.exp-note--wide {
+    grid-column: 1 / -1;
+}
+
+.exp-note__label {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+}
+
+.exp-note__title {
+    font-size: 1.25rem;
+}
+
+.exp-note__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 0;
     font-size: 0.8rem;
-    color: #888;
-    padding: 2px 8px;
-    background: #333;
-    border-radius: 4px;
+    color: var(--ink-2);
 }
 
-/* ═══════════════════════════════════════════════════════════
-   Responsive
-   ═══════════════════════════════════════════════════════════ */
+.exp-note__meta span:not(:last-child)::after {
+    content: "·";
+    margin: 0 0.6em;
+    color: var(--line-dim);
+}
 
-@media (max-width: 640px) {
-    .experience-page__hero {
-        padding: 50px 20px 36px;
+.exp-note__text {
+    max-width: 76ch;
+    color: var(--ink-2);
+    line-height: 1.7;
+}
+
+.exp-langs {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.exp-langs th,
+.exp-langs td {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-align: left;
+}
+
+.exp-langs th {
+    font-weight: 700;
+}
+
+.exp-langs td {
+    font-size: 0.82rem;
+    color: var(--ink-2);
+    text-align: right;
+}
+
+@media (max-width: 860px) {
+    .exp-revs {
+        --rule-x: 1rem;
     }
 
-    .experience-page__title {
-        font-size: 2rem;
+    .exp-rev {
+        grid-template-columns: 2rem minmax(0, 1fr);
+        grid-template-areas:
+            "marker date"
+            ". body";
+        row-gap: 0.75rem;
     }
 
-    .experience-page__timeline,
-    .experience-page__education,
-    .experience-page__extra {
-        padding: 0 16px;
+    .exp-rev__marker {
+        grid-area: marker;
+        margin-top: 0;
     }
 
-    .experience-page__extra {
-        grid-template-columns: 1fr;
+    .exp-rev__date {
+        grid-area: date;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.2rem 0.8rem;
+        padding: 0.35rem 0 0 0.9rem;
+        text-align: left;
     }
 
-    .exp-card {
-        padding: 20px 16px;
+    .exp-rev__body {
+        grid-area: body;
+        padding-left: 0.9rem;
     }
 
-    .exp-card__info-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
+    .exp-notes__grid {
+        grid-template-columns: minmax(0, 1fr);
     }
 
-    .exp-card__footer {
-        flex-direction: column;
-    }
-
-    .exp-timeline {
-        display: none;
+    .exp-note:last-child {
+        border-left: 0;
+        border-top: 1px solid var(--line-dim);
     }
 }

@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FaArrowRight, FaCheck, FaSearch, FaTimes } from "react-icons/fa";
 import projects from "../../data/projects.json";
-import { ProjectCard } from "../../components/ProjectCard/ProjectCard";
 import "./Projects.css";
 
 // All unique types and skills derived once at module level
@@ -27,9 +27,10 @@ function matchesSearch(project, words) {
     return words.every((w) => haystack.includes(w));
 }
 
-export function Projects() {
-    const navigate = useNavigate();
+// Ongoing work counts as the most recent, ahead of anything already finished
+const recency = (p) => (p.status && p.status !== "Completed" ? Infinity : p.year ?? 0);
 
+export function Projects() {
     // ── State ──────────────────────────────────────────────────────────────
     const [rawSearch, setRawSearch] = useState("");
     const [search, setSearch] = useState("");           // debounced
@@ -46,7 +47,7 @@ export function Projects() {
         return () => clearTimeout(t);
     }, [rawSearch]);
 
-    // Close skill dropdown on outside click
+    // Close skill dropdown on outside click or Escape
     useEffect(() => {
         if (!skillDropdownOpen) return;
         const handler = (e) => {
@@ -54,8 +55,15 @@ export function Projects() {
                 setSkillDropdownOpen(false);
             }
         };
+        const onKey = (e) => {
+            if (e.key === "Escape") setSkillDropdownOpen(false);
+        };
         document.addEventListener("mousedown", handler);
-        return () => document.removeEventListener("mousedown", handler);
+        document.addEventListener("keydown", onKey);
+        return () => {
+            document.removeEventListener("mousedown", handler);
+            document.removeEventListener("keydown", onKey);
+        };
     }, [skillDropdownOpen]);
 
     // ── Filtered + sorted list ─────────────────────────────────────────────
@@ -71,8 +79,8 @@ export function Projects() {
         );
 
         switch (sortKey) {
-            case "newest": result.sort((a, b) => (b.year ?? 0) - (a.year ?? 0)); break;
-            case "oldest": result.sort((a, b) => (a.year ?? 0) - (b.year ?? 0)); break;
+            case "newest": result.sort((a, b) => recency(b) - recency(a)); break;
+            case "oldest": result.sort((a, b) => recency(a) - recency(b)); break;
             case "az":     result.sort((a, b) => a.title.localeCompare(b.title)); break;
             case "za":     result.sort((a, b) => b.title.localeCompare(a.title)); break;
         }
@@ -108,34 +116,35 @@ export function Projects() {
     };
 
     const skillTriggerLabel =
-        filterSkills.size === 0 ? "Skills" :
+        filterSkills.size === 0 ? "Any" :
         filterSkills.size === 1 ? [...filterSkills][0] :
-        `${filterSkills.size} skills`;
+        `${filterSkills.size} selected`;
 
     // ── Render ─────────────────────────────────────────────────────────────
     return (
         <div className="projects-page">
 
             {/* Header */}
-            <div className="projects-page__header">
-                <div>
-                    <h1 className="projects-page__title">Projects</h1>
-                    <p className="projects-page__subtitle">
-                        A collection of my academic and personal work.
+            <header className="projects-page__header">
+                <div className="projects-page__heading-row">
+                    <div>
+                        <h1 className="projects-page__title">Projects</h1>
+                        <p className="projects-page__subtitle">
+                            A collection of my academic and personal work.
+                        </p>
+                    </div>
+                    <p className="projects-page__count mono" aria-live="polite">
+                        <span className="projects-page__count-n">{filtered.length}</span>
+                        {" "}/ {projects.length} project{projects.length !== 1 ? "s" : ""}
                     </p>
                 </div>
-                <span className="projects-page__count">
-                    {filtered.length} / {projects.length} project{projects.length !== 1 ? "s" : ""}
-                </span>
-            </div>
+            </header>
 
             {/* Toolbar */}
             <div className="projects-page__toolbar">
                 {/* Search */}
                 <div className="pp-search">
-                    <svg className="pp-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                    </svg>
+                    <FaSearch className="pp-search__icon" aria-hidden="true" />
                     <input
                         ref={searchRef}
                         className="pp-search__input"
@@ -147,41 +156,43 @@ export function Projects() {
                     />
                     {rawSearch && (
                         <button className="pp-search__clear" onClick={() => setRawSearch("")} aria-label="Clear search">
-                            ✕
+                            <FaTimes aria-hidden="true" />
                         </button>
                     )}
                 </div>
 
                 {/* Filters */}
                 <div className="pp-filters">
-                    <div className="pp-select-wrap">
+                    <label className="pp-field">
+                        <span className="pp-field__label">Type</span>
                         <select
                             className="pp-select"
                             value={filterType}
                             onChange={(e) => setFilterType(e.target.value)}
-                            aria-label="Filter by type"
                         >
                             <option value="">All Types</option>
                             {ALL_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
                         </select>
-                    </div>
+                    </label>
 
                     {/* Multi-select skill dropdown */}
-                    <div className="pp-skill-dropdown" ref={skillDropdownRef}>
+                    <div className="pp-field pp-skill-dropdown" ref={skillDropdownRef}>
+                        <span className="pp-field__label" id="pp-skill-label">Skills</span>
                         <button
                             className={`pp-skill-trigger${filterSkills.size ? " pp-skill-trigger--active" : ""}${skillDropdownOpen ? " pp-skill-trigger--open" : ""}`}
                             onClick={() => setSkillDropdownOpen((v) => !v)}
                             aria-expanded={skillDropdownOpen}
-                            aria-label="Filter by skills"
+                            aria-haspopup="listbox"
+                            aria-label={`Filter by skills: ${skillTriggerLabel}`}
                         >
-                            {skillTriggerLabel}
-                            <svg className="pp-skill-trigger__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <span className="pp-skill-trigger__text">{skillTriggerLabel}</span>
+                            <svg className="pp-skill-trigger__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                                 <polyline points="6 9 12 15 18 9"/>
                             </svg>
                         </button>
 
                         {skillDropdownOpen && (
-                            <div className="pp-skill-panel" role="listbox" aria-multiselectable="true">
+                            <div className="pp-skill-panel" role="listbox" aria-multiselectable="true" aria-labelledby="pp-skill-label">
                                 {ALL_SKILLS.map((skill) => {
                                     const selected = filterSkills.has(skill);
                                     return (
@@ -193,7 +204,7 @@ export function Projects() {
                                             onClick={() => toggleSkill(skill)}
                                         >
                                             <span className="pp-skill-option__check" aria-hidden="true">
-                                                {selected ? "✓" : ""}
+                                                {selected && <FaCheck />}
                                             </span>
                                             {skill}
                                         </button>
@@ -203,27 +214,22 @@ export function Projects() {
                         )}
                     </div>
 
-                    <div className="pp-select-wrap pp-select-wrap--sort">
-                        <svg className="pp-sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <line x1="3" y1="6" x2="21" y2="6"/>
-                            <line x1="3" y1="12" x2="15" y2="12"/>
-                            <line x1="3" y1="18" x2="9" y2="18"/>
-                        </svg>
+                    <label className="pp-field">
+                        <span className="pp-field__label">Sort</span>
                         <select
                             className="pp-select"
                             value={sortKey}
                             onChange={(e) => setSortKey(e.target.value)}
-                            aria-label="Sort projects"
                         >
                             <option value="newest">Newest First</option>
                             <option value="oldest">Oldest First</option>
                             <option value="az">A → Z</option>
                             <option value="za">Z → A</option>
                         </select>
-                    </div>
+                    </label>
 
                     {hasFilters && (
-                        <button className="pp-clear-btn" onClick={clearAll}>
+                        <button className="btn btn--plain pp-clear-btn" onClick={clearAll}>
                             Clear all
                         </button>
                     )}
@@ -234,40 +240,62 @@ export function Projects() {
             {hasFilters && (
                 <div className="pp-chips">
                     {rawSearch && (
-                        <button className="pp-chip" onClick={() => setRawSearch("")}>
-                            🔍 &ldquo;{rawSearch}&rdquo; <span>✕</span>
+                        <button className="pp-chip" onClick={() => setRawSearch("")} aria-label={`Remove search "${rawSearch}"`}>
+                            &ldquo;{rawSearch}&rdquo; <FaTimes aria-hidden="true" />
                         </button>
                     )}
                     {filterType && (
-                        <button className="pp-chip" onClick={() => setFilterType("")}>
-                            Type: {filterType} <span>✕</span>
+                        <button className="pp-chip" onClick={() => setFilterType("")} aria-label={`Remove type filter ${filterType}`}>
+                            Type: {filterType} <FaTimes aria-hidden="true" />
                         </button>
                     )}
                     {[...filterSkills].map((skill) => (
-                        <button key={skill} className="pp-chip" onClick={() => removeSkill(skill)}>
-                            {skill} <span>✕</span>
+                        <button key={skill} className="pp-chip" onClick={() => removeSkill(skill)} aria-label={`Remove skill filter ${skill}`}>
+                            {skill} <FaTimes aria-hidden="true" />
                         </button>
                     ))}
                 </div>
             )}
 
-            {/* Grid */}
+            {/* Register */}
             {filtered.length > 0 ? (
-                <div className="projects-page__grid">
+                <ol className="register">
+                    <li className="register__head" aria-hidden="true">
+                        <span>No.</span>
+                        <span>Project</span>
+                        <span>Type</span>
+                        <span>Year</span>
+                        <span>Technologies</span>
+                    </li>
                     {filtered.map(({ _idx, ...project }) => (
-                        <ProjectCard
-                            key={project.title}
-                            variant="grid"
-                            {...project}
-                            onClick={() => navigate(`/projects/${_idx}`)}
-                        />
+                        <li key={project.title}>
+                            <Link to={`/projects/${_idx}`} className="register__row">
+                                <span className="register__no mono">{String(_idx + 1).padStart(2, "0")}</span>
+                                <span className="register__project">
+                                    <span className="register__title">{project.title}</span>
+                                    <span className="register__tagline">{project.tagline}</span>
+                                </span>
+                                <span className="register__type">
+                                    {project.type}
+                                    {project.status && project.status !== "Completed" && (
+                                        <span className="rev-mark">{project.status}</span>
+                                    )}
+                                </span>
+                                <span className="register__year mono">{project.year}</span>
+                                <ul className="stack register__stack">
+                                    {project.skills.slice(0, 5).map((s) => <li key={s}>{s}</li>)}
+                                    {project.skills.length > 5 && <li>+{project.skills.length - 5}</li>}
+                                </ul>
+                                <FaArrowRight className="register__go" aria-hidden="true" />
+                            </Link>
+                        </li>
                     ))}
-                </div>
+                </ol>
             ) : (
                 <div className="projects-page__empty">
-                    <span className="projects-page__empty-icon">🔍</span>
-                    <p>No projects match your filters.</p>
-                    <button className="pp-clear-btn pp-clear-btn--lg" onClick={clearAll}>
+                    <p className="projects-page__empty-title">No projects match your filters.</p>
+                    <p className="projects-page__empty-sub">Remove a filter above, or clear them all to see the full register.</p>
+                    <button className="btn" onClick={clearAll}>
                         Clear filters
                     </button>
                 </div>
