@@ -17,7 +17,7 @@ function bulletsFor(flagship) {
 }
 
 // One flagship system drawn as a detail view: schematic + parts list + facts.
-// `layout` alternates per view so no two views share a composition.
+// `layout` ("left" | "right") puts the drawing on that side; the home page alternates it per view.
 export function DetailView({ flagship, layout = "left", headingLevel = 3, standalone = false }) {
     const [activeItem, setActiveItem] = useState(null);
     const project = projects[flagship.projectIndex];

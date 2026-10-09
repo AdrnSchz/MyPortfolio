@@ -1,8 +1,13 @@
-# React + Vite
+# Adrian Sanchez — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio, built with React 19, Vite and React Router.
+Live at https://myportfolio-8xt.pages.dev/.
 
-Currently, two official plugins are available:
+```sh
+npm install
+npm run dev
+npm run build
+npm run lint
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Content (projects, experience, skills) lives in `src/data/`. Static files (CV, reports, demo videos) live in `public/assets/`.

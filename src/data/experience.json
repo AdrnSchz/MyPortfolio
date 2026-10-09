@@ -8,7 +8,6 @@
     "startDate": "2024-11",
     "endDate": null,
     "current": true,
-    "logo": null,
     "description": "Embedded in Fujitsu Technology Solutions' client development teams for the banking sector, maintaining, extending and improving critical financial software for two major Spanish banks across two parallel product lines: ATM middleware for CaixaBank and financial monitoring for Banco Sabadell.",
     "bullets": [
       "Develop and maintain banking-grade software for high-availability financial systems serving millions of customers",
@@ -56,7 +55,6 @@
     "startDate": "2024-11",
     "endDate": "2025-07",
     "current": false,
-    "logo": null,
     "description": "Sole developer of the CivEnhance e-Service-Learning matchmaking platform, an EU-funded research project at La Salle Ramon Llull that connects European universities, teachers and students with rural community organisations. Owned the full technical implementation, from architecture design to production deployment.",
     "bullets": [
       "Designed and built the platform end to end: Astro + React frontend, Node.js/Express REST API and PostgreSQL database",
@@ -79,7 +77,6 @@
     "startDate": "2023-07",
     "endDate": "2024-07",
     "current": false,
-    "logo": null,
     "description": "Teaching assistant for the Digital Systems & Microprocessors course, supporting more than 200 students across several groups through lab sessions, theory support and code review.",
     "bullets": [
       "Taught microprocessor architecture, instruction sets and low-level programming to 200+ students",

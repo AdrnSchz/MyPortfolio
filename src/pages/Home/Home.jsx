@@ -9,7 +9,7 @@ import experience from "../../data/experience.json";
 import { dateRange } from "../../utils/dates";
 import "./Home.css";
 
-const LAYOUTS = ["left", "right", "mirror"];
+const LAYOUTS = ["left", "right"];
 const FLAGSHIP_INDICES = new Set(FLAGSHIPS.map((f) => f.projectIndex));
 // Systems-level work first: HAL 9000, Z compiler, STM32 controller, then the rest
 const BACKEND_ORDER = [4, 6, 5, 2, 3, 1];
